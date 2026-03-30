@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tense Contrasts, Grammar Exercise</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Lexend:wght@300;400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:#1f3864;--steel:#2e5fa3;--gold:#c9a84c;--ink:#1a2035;--muted:#7a8faa;
+    --paper:#f8f9fc;--white:#ffffff;--rule:#d0d8e8;--teal:#0f7b6c;--teal-bg:#e4f4f1;
+    --blue-bg:#e6f1fb;--blue-txt:#0c447c;--green-bg:#eaf3de;--green-txt:#27500a;
+    --red-bg:#fcebeb;--red-txt:#791f1f;--amber:#7a4a00;--amb-bg:#fff4d6;
+    --ps:#2e5fa3;--ps-bg:#e6f1fb;
+    --pc:#0f7b6c;--pc-bg:#e4f4f1;
+    --pas:#7a4a00;--pas-bg:#fff4d6;
+    --pac:#6b3fa0;--pac-bg:#f0eafb;
+    --pp:#2e7d32;--pp-bg:#eaf3de;
+    --pap:#a0433f;--pap-bg:#fbeaea;
+  }
+
+  /* DARK MODE */
+  body.dark {
+    --paper:#1c1f2e;--white:#242838;--ink:#dde2f0;--muted:#7a8faa;
+    --rule:#2e3655;--teal-bg:#0a2820;--green-bg:#0c2218;--green-txt:#58c87a;
+    --red-bg:#280e0e;--red-txt:#e07878;--blue-bg:#0d1830;--blue-txt:#6ab0f5;
+    --amb-bg:#261900;--ps-bg:#0d1e38;--pc-bg:#0a2018;--pas-bg:#261900;
+    --pac-bg:#1a1030;--pp-bg:#0c2218;--pap-bg:#280e0e;
+  }
+  body.dark #cover { background:#0f1420; }
+  body.dark .section-hdr { background:#0f1420; }
+  body.dark .menu-btn { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.1); }
+  body.dark .menu-btn:hover { background:rgba(255,255,255,.1); }
+  body.dark .menu-btn.grammar { background:rgba(201,168,76,.1); }
+  body.dark .score-bar,
+  body.dark .passage-card,
+  body.dark .intro,
+  body.dark .qblock,
+  body.dark .ref-card,
+  body.dark .sec-title,
+  body.dark .read-exp-item,
+  body.dark .error-card,
+  body.dark .final-inner,
+  body.dark .read-score-box { background:var(--white); color:var(--ink); }
+  body.dark .q-num-col { background:#1a1f2e; }
+  body.dark .opt { background:#1c2038; border-color:var(--rule); color:var(--ink); }
+  body.dark .opt:hover:not(:disabled) { background:#252b45; }
+  body.dark .cmp-table td:first-child { background:#1a1f2e; }
+  body.dark .cmp-table td:nth-child(2),
+  body.dark .cmp-table td:nth-child(3),
+  body.dark .cmp-table td:nth-child(4) { color:var(--ink); }
+  body.dark .exp-inner { background:#1c2038; }
+  body.dark .prog-bg { background:#2e3655; }
+  body.dark .tts-btn { background:var(--white); color:var(--ink); }
+  body.rounded .bnum { font-family:'OpenDyslexic',sans-serif; }
+
+  /* FONTS */
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Lexend',sans-serif; background:var(--paper); color:var(--ink); font-size:22px; line-height:1.8; }
+  body.rounded { font-family:'OpenDyslexic',sans-serif; letter-spacing:0.05em; line-height:1.9; }
+
+  /* ── COVER ─────────────────────────────── */
+  #cover { display:flex; flex-direction:column; min-height:100dvh; background:var(--navy); }
+  .cover-top { display:flex; align-items:flex-start; justify-content:space-between; padding:28px 22px 0; }
+  .cover-title { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; color:white; line-height:1.15; }
+  .cover-sub { font-size:15px; color:rgba(255,255,255,.55); font-style:italic; margin-top:4px; }
+  .cover-settings { display:flex; gap:8px; }
+  .tb-btn { font-family:inherit; font-size:13px; font-weight:700; padding:8px 14px; border-radius:20px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.1); color:rgba(255,255,255,.85); cursor:pointer; transition:all .2s; white-space:nowrap; }
+  .tb-btn:hover { background:rgba(255,255,255,.2); }
+  .tb-btn.on { background:var(--gold); border-color:var(--gold); color:#1a1a00; }
+  .cover-teacher { font-size:14px; color:rgba(255,255,255,.4); padding:12px 22px 0; }
+  .cover-tagline { font-size:16px; color:rgba(255,255,255,.6); padding:8px 22px 20px; line-height:1.5; }
+  .cover-menu { display:flex; flex-direction:column; gap:12px; padding:4px 16px 36px; flex:1; }
+  .menu-btn { display:flex; align-items:center; gap:16px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:14px; padding:18px 20px; cursor:pointer; text-align:left; transition:background .2s,border-color .2s; color:white; font-family:inherit; width:100%; }
+  .menu-btn:hover, .menu-btn:active { background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.35); }
+  .menu-btn.grammar { background:rgba(201,168,76,.15); border-color:rgba(201,168,76,.4); }
+  .menu-btn.grammar:hover { background:rgba(201,168,76,.25); }
+  .menu-btn.bonus { background:rgba(46,127,50,.15); border-color:rgba(46,127,50,.4); }
+  .menu-btn.bonus:hover { background:rgba(46,127,50,.25); }
+  .cover-note { font-size:14px; color:rgba(255,255,255,.5); padding:0 22px 16px; line-height:1.6; }
+  .menu-icon { font-size:28px; flex-shrink:0; width:36px; text-align:center; }
+  .menu-text { flex:1; }
+  .menu-title { font-size:18px; font-weight:700; line-height:1.2; }
+  .menu-desc { font-size:13px; color:rgba(255,255,255,.55); margin-top:3px; }
+  .menu-btn.grammar .menu-desc { color:rgba(201,168,76,.8); }
+  .menu-arrow { font-size:20px; color:rgba(255,255,255,.35); flex-shrink:0; }
+
+  /* ── SECTION LAYOUT ─────────────────────── */
+  #sections { display:none; }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+
+  /* ── SECTION HEADER (sticky) ── */
+  .section-hdr { position:sticky; top:0; z-index:100; display:flex; align-items:center; gap:14px; background:var(--navy); padding:14px 18px; border-bottom:3px solid var(--gold); }
+  .back-btn { display:flex; align-items:center; gap:6px; font-family:inherit; font-size:15px; font-weight:700; color:white; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:8px 16px; cursor:pointer; transition:background .15s; white-space:nowrap; }
+  .back-btn:hover { background:rgba(255,255,255,.22); }
+  .section-hdr-title { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:white; flex:1; line-height:1.2; }
+  .section-hdr-settings { display:flex; gap:6px; }
+  .hdr-tb-btn { font-family:inherit; font-size:12px; font-weight:700; padding:7px 11px; border-radius:16px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.1); color:rgba(255,255,255,.85); cursor:pointer; transition:all .2s; white-space:nowrap; }
+  .hdr-tb-btn.on { background:var(--gold); border-color:var(--gold); color:#1a1a00; }
+
+  /* ── MAIN CONTENT ── */
+  .section-body { display:block; }
+  main { max-width:680px; margin:0 auto; padding:24px 16px 80px; }
+
+  /* INTRO */
+  .intro { background:white; border:1px solid var(--rule); border-left:5px solid var(--gold); padding:18px 24px; margin-bottom:28px; font-size:20px; line-height:1.8; border-radius:0 6px 6px 0; }
+  .intro strong { color:var(--navy); }
+  .grammar-link { display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-size:16px; font-weight:700; color:var(--steel); background:var(--blue-bg); border:1px solid var(--steel); border-radius:20px; padding:6px 16px; cursor:pointer; transition:background .15s; text-decoration:none; }
+  .grammar-link:hover { background:#d0e5f8; }
+  body.dark .grammar-link { background:var(--ps-bg); }
+
+  /* HINT SYSTEM */
+  .hint-btn { font-family:inherit; font-size:14px; font-weight:700; color:var(--muted); background:none; border:1px dashed var(--rule); border-radius:14px; padding:4px 12px; cursor:pointer; margin:6px 0 0 72px; transition:all .15s; }
+  .hint-btn:hover { color:var(--gold); border-color:var(--gold); }
+  @media(max-width:560px){ .hint-btn { margin-left:16px; } }
+  .hint-box { display:none; margin:6px 0 4px 72px; font-size:16px; color:var(--muted); line-height:1.6; }
+  .hint-box.show { display:block; }
+  .hint-hl { font-weight:700; color:var(--gold); font-style:normal; }
+  @media(max-width:560px){ .hint-box { margin-left:16px; } }
+  .voc-tip { color:var(--steel); font-weight:700; border-bottom:2px dotted var(--steel); cursor:pointer; transition:color .15s; }
+  .voc-tip:hover { color:var(--navy); }
+  body.dark .voc-tip { color:#6ab0f5; border-color:#6ab0f5; }
+  .gram-reminder { margin-top:10px; font-size:15px; color:var(--navy); background:#fff8e8; border-left:3px solid var(--gold); padding:7px 12px; border-radius:0 4px 4px 0; line-height:1.6; }
+  body.dark .gram-reminder { background:#2a2400; color:#e8d080; border-color:var(--gold); } margin-top:10px; font-size:14px; color:var(--steel); font-weight:700; }
+  .vf-link a { color:inherit; text-decoration:underline; }
+  .vf-link a:hover { color:var(--navy); }
+  body.dark .vf-link a { color:#6ab0f5; }
+  .voc-overlay { display:none; position:fixed; inset:0; z-index:900; background:rgba(0,0,0,.45); align-items:flex-end; justify-content:center; padding:0 0 20px; }
+  .voc-overlay.open { display:flex; }
+  .voc-card { background:white; border-radius:16px 16px 12px 12px; padding:24px 24px 28px; max-width:520px; width:100%; box-shadow:0 -4px 32px rgba(0,0,0,.18); position:relative; }
+  body.dark .voc-card { background:#242838; color:var(--ink); }
+  .voc-close { position:absolute; top:14px; right:16px; font-size:22px; background:none; border:none; cursor:pointer; color:var(--muted); line-height:1; padding:4px 8px; }
+  .voc-type { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--gold); margin-bottom:4px; }
+  .voc-term { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); margin-bottom:10px; }
+  body.dark .voc-term { color:#dde2f0; }
+  .voc-def { font-size:18px; line-height:1.75; color:var(--ink); margin-bottom:10px; }
+  .voc-ex { font-size:16px; font-style:italic; color:var(--muted); border-left:3px solid var(--gold); padding-left:12px; line-height:1.65; }
+  .voc-ex strong { color:var(--navy); font-style:normal; }
+  body.dark .voc-ex strong { color:#dde2f0; }
+
+  /* SECTION PREV/NEXT NAVIGATION */
+  .sec-nav { display:flex; gap:10px; justify-content:center; padding:28px 16px 0; flex-wrap:wrap; }
+  .sec-nav-btn { display:flex; align-items:center; gap:8px; font-family:inherit; font-size:15px; font-weight:700; color:white; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25); border-radius:20px; padding:10px 20px; cursor:pointer; transition:background .15s; }
+  .sec-nav-btn:hover { background:rgba(255,255,255,.22); }
+  .sec-nav-btn.next { background:var(--gold); border-color:#a07820; color:#1a1200; }
+  .sec-nav-btn.next:hover { background:#b08830; border-color:#806010; color:#1a1200; }
+  .legend { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+  .leg-badge { font-size:14px; font-weight:700; padding:5px 13px; border-radius:3px; }
+
+  /* SECTION HEADS */
+  .sec-head { display:flex; align-items:stretch; }
+  .sec-label { color:white; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:9px 16px; display:flex; align-items:center; white-space:nowrap; }
+  .sec-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; color:var(--navy); padding:8px 18px; background:white; border:1px solid var(--rule); border-left:none; flex:1; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+
+  /* TTS BUTTON */
+  .tts-btn { display:inline-flex; align-items:center; gap:6px; font-family:inherit; font-size:13px; font-weight:600; padding:6px 14px; border-radius:20px; border:1px solid var(--rule); background:white; color:var(--navy); cursor:pointer; transition:all .15s; flex-shrink:0; }
+  .tts-btn:hover { background:var(--blue-bg); border-color:var(--steel); }
+  .tts-btn.playing { background:var(--red-bg); border-color:var(--red-txt); color:var(--red-txt); }
+  .tts-btn svg { width:16px; height:16px; fill:currentColor; }
+
+  /* SCORE BAR */
+  .score-bar { background:white; border:1px solid var(--rule); border-radius:6px; padding:16px 22px; margin-bottom:26px; display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+  .score-cell { text-align:center; min-width:60px; }
+  .score-num { font-family:'Playfair Display',serif; font-size:30px; font-weight:700; color:var(--navy); line-height:1; }
+  .score-lbl { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin-top:3px; }
+  .score-div { width:1px; height:44px; background:var(--rule); }
+  .prog-wrap { flex:1; min-width:150px; }
+  .prog-meta { display:flex; justify-content:space-between; font-size:14px; color:var(--muted); margin-bottom:6px; }
+  .prog-bg { height:6px; background:#e4e9f4; border-radius:3px; overflow:hidden; }
+  .prog-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--steel),var(--gold)); border-radius:3px; transition:width .4s; }
+
+  /* QUESTION BLOCKS */
+  .questions { display:flex; flex-direction:column; }
+  .qblock { background:white; border:1px solid var(--rule); border-top:none; }
+  .qblock:first-child { border-top:1px solid var(--rule); border-radius:6px 6px 0 0; }
+  .qblock:last-child { border-radius:0 0 6px 6px; }
+  .qblock.ans-correct { border-left:5px solid var(--teal); }
+  .qblock.ans-wrong { border-left:5px solid var(--red-txt); }
+  .qblock-top { display:flex; align-items:stretch; }
+  .q-num-col { background:#f4f7fb; border-right:1px solid var(--rule); padding:16px 12px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-width:52px; gap:2px; }
+  .q-num-lbl { font-size:11px; font-weight:700; color:var(--muted); letter-spacing:.06em; }
+  .q-num-val { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--navy); line-height:1; }
+  .q-body { flex:1; padding:16px 20px 14px; }
+  .q-text { font-size:20px; line-height:1.85; }
+  .q-blank { color:var(--navy); font-weight:700; }
+
+  /* OPTIONS */
+  .opts { display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:4px 20px 16px 72px; }
+  @media(max-width:560px) { .opts { grid-template-columns:1fr; padding-left:20px; } }
+  .opt { display:flex; align-items:flex-start; gap:10px; background:var(--paper); border:1px solid var(--rule); border-radius:5px; padding:10px 14px; font-family:inherit; font-size:18px; color:var(--ink); text-align:left; cursor:pointer; line-height:1.55; transition:background .12s,border-color .12s,color .12s; }
+  .opt:hover:not(:disabled) { background:#e9eef8; border-color:var(--steel); color:var(--navy); }
+  .opt:disabled { cursor:default; }
+  .opt-l { font-size:12px; font-weight:700; color:var(--muted); min-width:16px; padding-top:2px; }
+  .opt.selected { background:#dde6f8; border-color:var(--steel); color:var(--navy); font-weight:600; }
+  .opt.selected .opt-l { color:var(--steel); }
+  .opt.o-correct { background:var(--green-bg); border-color:var(--teal); color:var(--green-txt); }
+  .opt.o-correct .opt-l { color:var(--teal); }
+  .opt.o-wrong { background:var(--red-bg); border-color:var(--red-txt); color:var(--red-txt); }
+  .opt.o-wrong .opt-l { color:var(--red-txt); }
+
+  /* EXPLANATION */
+  .expbox { display:none; margin:0 20px 16px 72px; }
+  .expbox.show { display:block; }
+  @media(max-width:560px) { .expbox { margin-left:20px; } }
+  .exp-inner { background:#f4f7fb; border-left:4px solid var(--steel); border-radius:0 5px 5px 0; padding:12px 16px; font-size:18px; line-height:1.75; }
+  .exp-inner.e-correct { border-color:var(--teal); background:var(--teal-bg); }
+  .exp-inner.e-wrong { border-color:var(--red-txt); background:var(--red-bg); }
+  .exp-verdict { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:5px; }
+  .v-c { color:var(--teal); } .v-w { color:var(--red-txt); }
+  .exp-ca { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:6px; }
+  .exp-inner strong { color:var(--navy); } .exp-inner em { color:var(--muted); font-style:normal; }
+
+  /* PART SEPARATOR */
+  .part-sep { margin:36px 0 24px; }
+
+  /* PASSAGE */
+  .passage-card { background:white; border:1px solid var(--rule); border-top:none; padding:30px 32px 26px; }
+  .passage-title { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; color:var(--navy); margin-bottom:5px; }
+  .passage-byline { font-size:15px; color:var(--muted); font-style:italic; margin-bottom:24px; padding-bottom:16px; border-bottom:1px solid var(--rule); }
+  .passage-text { font-size:20px; line-height:2.1; color:var(--ink); }
+  .passage-text p { margin-bottom:20px; }
+  .passage-text p:last-child { margin-bottom:0; }
+  .bnum { font-family:'Source Sans 3',monospace; font-size:11px; font-weight:700; color:var(--muted); vertical-align:super; margin-right:1px; user-select:none; }
+  .bsel { display:inline-block; font-family:inherit; font-size:17px; font-weight:600; color:var(--navy); background:var(--blue-bg); border:1px solid var(--steel); border-radius:4px; padding:2px 6px; cursor:pointer; margin:0 2px; vertical-align:baseline; transition:background .15s,border-color .15s,color .15s; max-width:220px; }
+  .bsel:focus { outline:2px solid var(--gold); outline-offset:1px; }
+  .bsel:hover:not(:disabled) { background:#d4e4f7; }
+  .bsel.ok { background:var(--green-bg); border-color:var(--teal); color:var(--green-txt); }
+  .bsel.err { background:var(--red-bg); border-color:var(--red-txt); color:var(--red-txt); }
+  .bsel:disabled { cursor:default; opacity:1; }
+
+  /* BUTTONS */
+  .btn-row { display:flex; gap:12px; align-items:center; margin-top:24px; flex-wrap:wrap; }
+  .check-btn { background:var(--navy); color:white; border:none; border-radius:5px; font-family:inherit; font-size:15px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:12px 28px; cursor:pointer; transition:background .15s; }
+  .check-btn:hover { background:var(--steel); }
+  .check-btn:disabled { background:var(--muted); cursor:default; }
+  .reset-btn { background:white; color:var(--navy); border:1px solid var(--rule); border-radius:5px; font-family:inherit; font-size:15px; font-weight:600; padding:12px 24px; cursor:pointer; transition:border-color .15s; display:none; }
+  .reset-btn:hover { border-color:var(--steel); }
+  .restart-btn { background:var(--navy); color:white; border:none; border-radius:5px; font-family:inherit; font-size:15px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:11px 28px; cursor:pointer; transition:background .15s; }
+  .restart-btn:hover { background:var(--steel); }
+
+  /* READ SCORE BOX */
+  .read-score-box { display:none; background:white; border:1px solid var(--rule); border-top:5px solid var(--gold); border-radius:0 0 6px 6px; padding:30px; text-align:center; }
+  .read-score-box.show { display:block; }
+  .rs-lbl { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .rs-num { font-family:'Playfair Display',serif; font-size:64px; font-weight:700; color:var(--navy); line-height:1; }
+  .rs-of { font-size:15px; color:var(--muted); margin-bottom:14px; }
+  .rs-msg { font-family:'Playfair Display',serif; font-size:21px; font-style:italic; color:var(--ink); }
+
+  /* READING EXPLANATIONS */
+  .read-exp-list { display:flex; flex-direction:column; }
+  .read-exp-item { background:white; border:1px solid var(--rule); border-top:none; padding:14px 20px; display:flex; gap:14px; align-items:flex-start; }
+  .read-exp-item:first-child { border-top:1px solid var(--rule); }
+  .read-exp-item.rei-ok { border-left:4px solid var(--teal); }
+  .read-exp-item.rei-err { border-left:4px solid var(--red-txt); }
+  .rei-num { min-width:30px; font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:var(--navy); }
+  .rei-body { flex:1; }
+  .rei-verdict { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:4px; }
+  .rei-ok-v { color:var(--teal); } .rei-err-v { color:var(--red-txt); }
+  .rei-ans { font-size:15px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+  .rei-rule { font-size:18px; color:var(--ink); line-height:1.7; }
+  .rei-rule strong { color:var(--navy); } .rei-rule em { color:var(--muted); font-style:normal; }
+
+  /* FINAL PANEL */
+  .final-panel { display:none; margin-top:26px; }
+  .final-panel.show { display:block; }
+  .final-inner { background:white; border:1px solid var(--rule); border-top:5px solid var(--gold); border-radius:0 0 6px 6px; padding:44px 32px; text-align:center; }
+  .final-lbl { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+  .final-num { font-family:'Playfair Display',serif; font-size:72px; font-weight:700; color:var(--navy); line-height:1; }
+  .final-of { font-size:15px; color:var(--muted); margin-bottom:18px; }
+  .final-msg { font-family:'Playfair Display',serif; font-size:23px; font-style:italic; color:var(--ink); margin-bottom:10px; }
+  .final-sub { font-size:17px; color:var(--muted); max-width:440px; margin:0 auto 26px; line-height:1.7; }
+
+  /* GRAMMAR REFERENCE */
+  .divider { border:none; border-top:1px solid var(--rule); margin:42px 0; }
+  .ref-card { background:white; border:1px solid var(--rule); border-top:none; padding:24px 26px; }
+  .note { font-size:18px; color:var(--muted); font-style:italic; margin-bottom:18px; line-height:1.7; }
+  .structure { display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+  .struct-part { flex:1; min-width:160px; border-radius:6px; padding:14px 16px; }
+  .struct-lbl { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin-bottom:6px; }
+  .struct-form { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px; }
+  .struct-det { font-size:14px; color:var(--muted); }
+  .examples { display:flex; flex-direction:column; gap:10px; }
+  .ex-lbl { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:4px; }
+  .ex-sentence { padding:12px 16px; font-size:18px; line-height:1.65; border-left:4px solid; }
+  .hl { font-weight:700; }
+  .rule-box { border-left:3px solid var(--steel); padding:12px 16px; margin-top:16px; font-size:17px; line-height:1.7; border-radius:0 4px 4px 0; }
+  .rule-box strong { color:var(--steel); } .rule-box em { color:var(--muted); }
+  .tag { display:inline-block; font-size:12px; font-weight:700; padding:2px 8px; border-radius:3px; vertical-align:middle; margin-right:4px; }
+  .tag-aff { background:var(--green-bg); color:var(--green-txt); }
+  .tag-neg { background:var(--red-bg); color:var(--red-txt); }
+  .tag-int { background:var(--blue-bg); color:var(--blue-txt); }
+
+  /* STATIVE VERBS BOX */
+  .sv-box { background:#f0f4ff; border:1px solid #b0c4e8; border-left:5px solid var(--steel); border-radius:0 6px 6px 0; padding:18px 22px; margin:20px 0; }
+  .sv-box h4 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--navy); margin-bottom:10px; }
+  .sv-box p { font-size:17px; line-height:1.75; color:var(--ink); margin-bottom:10px; }
+  .sv-box p:last-child { margin-bottom:0; }
+  .sv-box em { color:var(--muted); }
+  .sv-box strong { color:var(--navy); }
+  body.dark .sv-box { background:var(--blue-bg); border-color:#3a5080; }
+
+  /* PP vs PE BOX */
+  .ppep-box { background:#fff8ec; border:1px solid #d4b87a; border-left:5px solid var(--amber); border-radius:0 6px 6px 0; padding:18px 22px; margin-top:20px; }
+  .ppep-box h4 { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--amber); margin-bottom:12px; }
+  .ppep-table { width:100%; border-collapse:collapse; font-size:16px; margin-top:4px; }
+  .ppep-table th { background:var(--amber); color:white; padding:9px 14px; text-align:left; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+  .ppep-table td { padding:9px 14px; border-bottom:1px solid #d4b87a; vertical-align:top; line-height:1.6; }
+  .ppep-table tr:last-child td { border-bottom:none; }
+  .ppep-table td:first-child { font-weight:700; color:var(--amber); background:#fffbf0; white-space:nowrap; }
+  body.dark .ppep-box { background:var(--amb-bg); border-color:#7a5a00; }
+  body.dark .ppep-table td:first-child { background:#201400; }
+
+  .cmp-table { width:100%; border-collapse:collapse; font-size:16px; }
+  .cmp-table th { padding:10px 14px; text-align:left; font-size:13px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:white; background:var(--navy); }
+  .cmp-table td { padding:10px 14px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  .cmp-table tr:last-child td { border-bottom:none; }
+  .cmp-table td:first-child { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; background:#f8f9fc; color:var(--muted); width:20%; }
+  .cmp-table em { color:var(--muted); font-size:14px; display:block; margin-top:3px; }
+
+  .error-card { background:white; border:1px solid var(--rule); border-top:4px solid #a32d2d; border-radius:0 0 6px 6px; padding:20px 24px; }
+  .error-row { display:flex; align-items:flex-start; gap:10px; font-size:18px; margin-bottom:8px; }
+  .tag-wrong { background:var(--red-bg); color:var(--red-txt); font-size:12px; font-weight:700; padding:2px 8px; border-radius:3px; flex-shrink:0; margin-top:3px; }
+  .tag-ok { background:var(--green-bg); color:var(--green-txt); font-size:12px; font-weight:700; padding:2px 8px; border-radius:3px; flex-shrink:0; margin-top:3px; }
+  .struck { text-decoration:line-through; color:var(--muted); }
+
+  @media(max-width:560px) {
+    .opts { grid-template-columns:1fr; padding-left:16px; }
+    .expbox { margin-left:16px; }
+    .bsel { font-size:16px; max-width:160px; }
+    .passage-text { font-size:17px; }
+    .score-bar { gap:10px; padding:12px 14px; }
+    .score-num { font-size:24px; }
+    .cmp-table { font-size:14px; }
+    .cmp-table th, .cmp-table td { padding:8px 10px; }
+    .ppep-table { font-size:14px; }
+    .structure { flex-direction:column; }
+    .sec-title { font-size:17px; }
+    .passage-card { padding:18px 14px; }
+    .intro { font-size:18px; padding:14px 16px; }
+    .q-text { font-size:18px; }
+    .opt { font-size:17px; }
+    .section-hdr-title { font-size:16px; }
+  }
+  @font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://cdn.jsdelivr.net/npm/opendyslexic@0.0.3/fonts/OpenDyslexic-Regular.otf') format('opentype');
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://cdn.jsdelivr.net/npm/opendyslexic@0.0.3/fonts/OpenDyslexic-Bold.otf') format('opentype');
+    font-weight: 700; font-style: normal;
+  }
+</style>
+</head>
+<body>
+
+<div id="cover">
+  <div class="cover-top">
+    <div>
+      <div class="cover-title">Tense Contrasts</div>
+      <div class="cover-sub">English Grammar Exercises</div>
+    </div>
+    <div class="cover-settings">
+      <button class="tb-btn" id="darkBtn" onclick="toggleDark()">🌙</button>
+      <button class="tb-btn on" id="fontBtn" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="cover-teacher">English Teacher: Tereza Afonso</div>
+  <div class="cover-tagline">Escolhe um exercício e pratica os tempos verbais em contexto.</div>
+  <div class="cover-note">Esta aplicação não substitui as aulas nem o estudo com o manual. É um recurso de prática adicional que podes usar quando quiseres, quantas vezes quiseres. Quanto mais praticares, mais natural se torna identificar e usar os tempos verbais em inglês.</div>
+  <nav class="cover-menu">
+    <button class="menu-btn" onclick="showSection('t1')">
+      <span class="menu-icon">✏️</span>
+      <span class="menu-text">
+        <div class="menu-title">Present Simple / Continuous</div>
+        <div class="menu-desc">Entertainment &amp; Arts</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+    <button class="menu-btn" onclick="showSection('t2')">
+      <span class="menu-icon">✏️</span>
+      <span class="menu-text">
+        <div class="menu-title">Past Simple / Continuous</div>
+        <div class="menu-desc">Digital Teens</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+    <button class="menu-btn" onclick="showSection('t3')">
+      <span class="menu-icon">✏️</span>
+      <span class="menu-text">
+        <div class="menu-title">Past Simple / Present Perfect</div>
+        <div class="menu-desc">Healthy Lifestyles</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+    <button class="menu-btn" onclick="showSection('t4')">
+      <span class="menu-icon">✏️</span>
+      <span class="menu-text">
+        <div class="menu-title">Present Perfect / Past Perfect</div>
+        <div class="menu-desc">Healthy Lifestyles</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+    <button class="menu-btn" onclick="showSection('t6')">
+      <span class="menu-icon">✏️</span>
+      <span class="menu-text">
+        <div class="menu-title">Past Simple / Past Perfect</div>
+        <div class="menu-desc">Challenges</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+    <button class="menu-btn bonus" onclick="showSection('t7')">
+      <span class="menu-icon">⭐</span>
+      <span class="menu-text">
+        <div class="menu-title">Present Perfect / Continuous</div>
+        <div class="menu-desc">Going Away · bónus</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+    <button class="menu-btn grammar" onclick="showSection('t5')">
+      <span class="menu-icon">📖</span>
+      <span class="menu-text">
+        <div class="menu-title">Grammar</div>
+        <div class="menu-desc">Explicações em português · exemplos em inglês · áudio</div>
+      </span>
+      <span class="menu-arrow">›</span>
+    </button>
+  </nav>
+</div>
+
+<!-- VOCABULARY TOOLTIP OVERLAY -->
+<div class="voc-overlay" id="vocOverlay" onclick="closeVoc(event)">
+  <div class="voc-card" id="vocCard">
+    <button class="voc-close" onclick="closeVocBtn()">✕</button>
+    <div class="voc-type" id="vocType"></div>
+    <div class="voc-term" id="vocTerm"></div>
+    <div class="voc-def" id="vocDef"></div>
+    <div class="voc-ex" id="vocEx"></div>
+  </div>
+</div>
+
+<div id="sections">
+
+<!-- ══════════ TAB 1 ══════════ -->
+<div class="tab-panel" id="tab-t1">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">Present Simple / Continuous</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" id="darkBtn2" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" id="fontBtn2" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+  <div class="intro">Aqui podes aprender o contraste entre o <strong>Present Simple</strong> e o <strong>Present Continuous</strong>. Para estes exercícios foi escolhido o tema <strong>Entertainment &amp; Arts</strong>. Podes realizar os exercícios de forma independente. Para saberes as respostas corretas e a sua explicação, clica em <em>Check answers</em>.<br><button class="grammar-link" onclick="goGrammar('ref-ps')">📖 Ver Grammar</button></div>
+  <div class="legend">
+    <span class="leg-badge" style="background:var(--ps-bg);color:var(--ps)">Present Simple</span>
+    <span class="leg-badge" style="background:var(--pc-bg);color:var(--pc)">Present Continuous</span>
+  </div>
+  <div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part A</div><div class="sec-title">Choose the correct tense, 15 questions</div></div>
+  <div class="score-bar">
+    <div class="score-cell"><div class="score-num" id="t1-sc">0</div><div class="score-lbl" id="t1-sc-lbl">Answered</div></div>
+    <div class="score-div" id="t1-sd" style="display:none"></div>
+    <div class="score-cell" id="t1-sw-cell" style="display:none"><div class="score-num" id="t1-sw">–</div><div class="score-lbl">Score</div></div>
+    <div class="score-div"></div>
+    <div class="score-cell"><div class="score-num" id="t1-sl">15</div><div class="score-lbl" id="t1-sl-lbl">Remaining</div></div>
+    <div class="score-div"></div>
+    <div class="prog-wrap"><div class="prog-meta"><span id="t1-pl">0 of 15 answered</span><span id="t1-pp">0 %</span></div><div class="prog-bg"><div class="prog-fill" id="t1-pf"></div></div></div>
+  </div>
+  <div class="questions" id="t1-qc"></div>
+  <div class="btn-row"><button class="check-btn" id="t1-ck" onclick="checkPartA('t1')">Check answers</button><button class="restart-btn" id="t1-rs" onclick="restartA('t1')" style="display:none">Try Again</button></div>
+  <div class="final-panel" id="t1-fp"><div class="final-inner"><div class="final-lbl">Part A score</div><div class="final-num" id="t1-fn">–</div><div class="final-of">out of 15</div><div class="final-msg" id="t1-fm"></div><div class="final-sub" id="t1-fs"></div></div></div>
+
+  <div class="part-sep"><div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part B</div><div class="sec-title">Reading, The New Face of Street Art, 10 gaps</div></div></div>
+  <div class="passage-card">
+    <div class="passage-title">The New Face of Street Art</div>
+    <div class="passage-byline">A look at how public art is transforming cities across Europe today</div>
+    <div class="passage-text">
+      <p>Every city in Europe <sup class="bnum">1</sup><select class="bsel" id="t1r1" data-correct="has"><option value="">select</option><option>has</option><option>is having</option><option>have</option><option>had</option></select> its own street art scene, but Porto stands out as one of the most vibrant. At the moment, the city <sup class="bnum">2</sup><select class="bsel" id="t1r2" data-correct="is undergoing"><option value="">select</option><option>is undergoing</option><option>undergoes</option><option>underwent</option><option>has undergone</option></select> a major artistic transformation, with murals appearing on almost every block.</p>
+      <p>Every weekend, hundreds of visitors <sup class="bnum">3</sup><select class="bsel" id="t1r3" data-correct="walk"><option value="">select</option><option>walk</option><option>are walking</option><option>walked</option><option>have walked</option></select> through the streets, admiring the enormous artworks that cover entire building façades. Right now, a team of local artists <sup class="bnum">4</sup><select class="bsel" id="t1r4" data-correct="is working on"><option value="">select</option><option>is working on</option><option>works on</option><option>worked on</option><option>has worked on</option></select> a new installation near the waterfront that will span four storeys.</p>
+      <p>The artists <sup class="bnum">5</sup><select class="bsel" id="t1r5" data-correct="don't paint"><option value="">select</option><option>don't paint</option><option>aren't painting</option><option>didn't paint</option><option>haven't painted</option></select> on any surface without prior permission. The city council <sup class="bnum">6</sup><select class="bsel" id="t1r6" data-correct="supports"><option value="">select</option><option>supports</option><option>is supporting</option><option>supported</option><option>has supported</option></select> their work with dedicated funding and legal protection.</p>
+      <p>This week, a documentary crew <sup class="bnum">7</sup><select class="bsel" id="t1r7" data-correct="is filming"><option value="">select</option><option>is filming</option><option>films</option><option>filmed</option><option>has filmed</option></select> the whole process for a national arts channel. Not everyone <sup class="bnum">8</sup><select class="bsel" id="t1r8" data-correct="agrees"><option value="">select</option><option>agrees</option><option>is agreeing</option><option>agreed</option><option>has agreed</option></select> with this approach. Some residents <sup class="bnum">9</sup><select class="bsel" id="t1r9" data-correct="don't appreciate"><option value="">select</option><option>don't appreciate</option><option>aren't appreciating</option><option>didn't appreciate</option><option>haven't appreciated</option></select> the noise and disruption. However, most surveys consistently <sup class="bnum">10</sup><select class="bsel" id="t1r10" data-correct="show"><option value="">select</option><option>show</option><option>are showing</option><option>showed</option><option>have shown</option></select> that public art increases both tourism revenue and community pride.</p>
+    </div>
+  </div>
+  <div class="btn-row"><button class="check-btn" id="t1-rb-ck" onclick="checkPartB('t1')">Check answers</button><button class="reset-btn" id="t1-rb-rs" onclick="resetPartB('t1')">Try Again</button></div>
+  <div class="read-score-box" id="t1-rsb"><div class="rs-lbl">Part B score</div><div class="rs-num" id="t1-rsn">–</div><div class="rs-of">out of 10</div><div class="rs-msg" id="t1-rsm"></div></div>
+  <div class="sec-head" id="t1-reh" style="display:none;margin-top:22px"><div class="sec-label" style="background:var(--navy)">Explanations</div><div class="sec-title">Gap-by-gap analysis</div></div>
+  <div class="read-exp-list" id="t1-rel"></div>
+  <div class="sec-nav"><button class="sec-nav-btn next" onclick="showSection('t2')">→ Past Simple / Continuous</button></div>
+  </main></div>
+</div>
+
+<!-- ══════════ TAB 2 ══════════ -->
+<div class="tab-panel" id="tab-t2">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">Past Simple / Continuous</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+  <div class="intro">Aqui podes aprender o contraste entre o <strong>Past Simple</strong> e o <strong>Past Continuous</strong>. Para estes exercícios foi escolhido o tema <strong>"Digital Teens"</strong>. Todas as perguntas têm duas orações ligadas por <em>when</em> ou <em>while</em>. Podes realizar os exercícios de forma independente. Para saberes as respostas corretas e a sua explicação, clica em <em>Check answers</em>.<br><button class="grammar-link" onclick="goGrammar('ref-pas')">📖 Ver Grammar</button></div>
+  <div class="legend">
+    <span class="leg-badge" style="background:var(--pas-bg);color:var(--pas)">Past Simple</span>
+    <span class="leg-badge" style="background:var(--pac-bg);color:var(--pac)">Past Continuous</span>
+  </div>
+  <div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part A</div><div class="sec-title">Choose the correct tense, 15 questions</div></div>
+  <div class="score-bar">
+    <div class="score-cell"><div class="score-num" id="t2-sc">0</div><div class="score-lbl" id="t2-sc-lbl">Answered</div></div>
+    <div class="score-div" id="t2-sd" style="display:none"></div>
+    <div class="score-cell" id="t2-sw-cell" style="display:none"><div class="score-num" id="t2-sw">–</div><div class="score-lbl">Score</div></div>
+    <div class="score-div"></div>
+    <div class="score-cell"><div class="score-num" id="t2-sl">15</div><div class="score-lbl" id="t2-sl-lbl">Remaining</div></div>
+    <div class="score-div"></div>
+    <div class="prog-wrap"><div class="prog-meta"><span id="t2-pl">0 of 15 answered</span><span id="t2-pp">0 %</span></div><div class="prog-bg"><div class="prog-fill" id="t2-pf"></div></div></div>
+  </div>
+  <div class="questions" id="t2-qc"></div>
+  <div class="btn-row"><button class="check-btn" id="t2-ck" onclick="checkPartA('t2')">Check answers</button><button class="restart-btn" id="t2-rs" onclick="restartA('t2')" style="display:none">Try Again</button></div>
+  <div class="final-panel" id="t2-fp"><div class="final-inner"><div class="final-lbl">Part A score</div><div class="final-num" id="t2-fn">–</div><div class="final-of">out of 15</div><div class="final-msg" id="t2-fm"></div><div class="final-sub" id="t2-fs"></div></div></div>
+
+  <div class="part-sep"><div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part B</div><div class="sec-title">Reading, One Night Without Screens, 10 gaps</div></div></div>
+  <div class="passage-card">
+    <div class="passage-title">One Night Without Screens</div>
+    <div class="passage-byline">What happened when the internet went down for an entire neighbourhood</div>
+    <div class="passage-text">
+      <p>Last Friday evening, while millions of teenagers <sup class="bnum">1</sup><select class="bsel" id="t2r1" data-correct="were scrolling"><option value="">select</option><option>were scrolling</option><option>scrolled</option><option>are scrolling</option><option>had scrolled</option></select> through their social media feeds, something unexpected happened: the internet went down across the entire region.</p>
+      <p>At that exact moment, Tom <sup class="bnum">2</sup><select class="bsel" id="t2r2" data-correct="was doing"><option value="">select</option><option>was doing</option><option>did</option><option>is doing</option><option>had done</option></select> his homework online. His sister Emma <sup class="bnum">3</sup><select class="bsel" id="t2r3" data-correct="was watching"><option value="">select</option><option>was watching</option><option>watched</option><option>watches</option><option>had watched</option></select> her favourite gaming streamer on her tablet. When the connection suddenly <sup class="bnum">4</sup><select class="bsel" id="t2r4" data-correct="went"><option value="">select</option><option>went</option><option>was going</option><option>goes</option><option>has gone</option></select> down, they both stared at their blank screens in confusion.</p>
+      <p>While Tom <sup class="bnum">5</sup><select class="bsel" id="t2r5" data-correct="was trying"><option value="">select</option><option>was trying</option><option>tried</option><option>tries</option><option>had tried</option></select> to reset the router, Emma <sup class="bnum">6</sup><select class="bsel" id="t2r6" data-correct="found"><option value="">select</option><option>found</option><option>was finding</option><option>finds</option><option>had found</option></select> an old board game at the back of the cupboard. They <sup class="bnum">7</sup><select class="bsel" id="t2r7" data-correct="took"><option value="">select</option><option>took</option><option>were taking</option><option>take</option><option>had taken</option></select> it down from the shelf and started to read the rules together.</p>
+      <p>Their parents <sup class="bnum">8</sup><select class="bsel" id="t2r8" data-correct="were relaxing"><option value="">select</option><option>were relaxing</option><option>relaxed</option><option>relax</option><option>had relaxed</option></select> in the living room when they heard laughter coming from the children's room. They noticed the children <sup class="bnum">9</sup><select class="bsel" id="t2r9" data-correct="were playing"><option value="">select</option><option>were playing</option><option>played</option><option>play</option><option>had played</option></select> a board game together, without a single screen in sight. By the end of the evening, both siblings <sup class="bnum">10</sup><select class="bsel" id="t2r10" data-correct="agreed"><option value="">select</option><option>agreed</option><option>were agreeing</option><option>agree</option><option>had agreed</option></select>: losing the internet had been the best thing that happened all week.</p>
+    </div>
+  </div>
+  <div class="btn-row"><button class="check-btn" id="t2-rb-ck" onclick="checkPartB('t2')">Check answers</button><button class="reset-btn" id="t2-rb-rs" onclick="resetPartB('t2')">Try Again</button></div>
+  <div class="read-score-box" id="t2-rsb"><div class="rs-lbl">Part B score</div><div class="rs-num" id="t2-rsn">–</div><div class="rs-of">out of 10</div><div class="rs-msg" id="t2-rsm"></div></div>
+  <div class="sec-head" id="t2-reh" style="display:none;margin-top:22px"><div class="sec-label" style="background:var(--navy)">Explanations</div><div class="sec-title">Gap-by-gap analysis</div></div>
+  <div class="read-exp-list" id="t2-rel"></div>
+  <div class="sec-nav"><button class="sec-nav-btn next" onclick="showSection('t3')">→ Past Simple / Present Perfect</button></div>
+  </main></div>
+</div>
+
+<!-- ══════════ TAB 3 ══════════ -->
+<div class="tab-panel" id="tab-t3">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">Past Simple / Present Perfect</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+  <div class="intro">Aqui podes aprender o contraste entre o <strong>Past Simple</strong> e o <strong>Present Perfect</strong> com o tema <strong>Healthy Lifestyles</strong>. Podes realizar os exercícios de forma independente. Para saberes as respostas corretas e a sua explicação, clica em <em>Check answers</em>.<br><button class="grammar-link" onclick="goGrammar('ref-pas')">📖 Past Simple</button> <button class="grammar-link" onclick="goGrammar('ref-pp')">📖 Present Perfect</button></div>
+  <div class="legend">
+    <span class="leg-badge" style="background:var(--pas-bg);color:var(--pas)">Past Simple</span>
+    <span class="leg-badge" style="background:var(--pp-bg);color:var(--pp)">Present Perfect</span>
+  </div>
+  <div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part A</div><div class="sec-title">Choose the correct tense, 15 questions</div></div>
+  <div class="score-bar">
+    <div class="score-cell"><div class="score-num" id="t3-sc">0</div><div class="score-lbl" id="t3-sc-lbl">Answered</div></div>
+    <div class="score-div" id="t3-sd" style="display:none"></div>
+    <div class="score-cell" id="t3-sw-cell" style="display:none"><div class="score-num" id="t3-sw">–</div><div class="score-lbl">Score</div></div>
+    <div class="score-div"></div>
+    <div class="score-cell"><div class="score-num" id="t3-sl">15</div><div class="score-lbl" id="t3-sl-lbl">Remaining</div></div>
+    <div class="score-div"></div>
+    <div class="prog-wrap"><div class="prog-meta"><span id="t3-pl">0 of 15 answered</span><span id="t3-pp">0 %</span></div><div class="prog-bg"><div class="prog-fill" id="t3-pf"></div></div></div>
+  </div>
+  <div class="questions" id="t3-qc"></div>
+  <div class="btn-row"><button class="check-btn" id="t3-ck" onclick="checkPartA('t3')">Check answers</button><button class="restart-btn" id="t3-rs" onclick="restartA('t3')" style="display:none">Try Again</button></div>
+  <div class="final-panel" id="t3-fp"><div class="final-inner"><div class="final-lbl">Part A score</div><div class="final-num" id="t3-fn">–</div><div class="final-of">out of 15</div><div class="final-msg" id="t3-fm"></div><div class="final-sub" id="t3-fs"></div></div></div>
+
+  <div class="part-sep"><div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part B</div><div class="sec-title">Reading, A Changed Life, 10 gaps</div></div></div>
+  <div class="passage-card">
+    <div class="passage-title">A Changed Life</div>
+    <div class="passage-byline">The story of a nutritionist whose career and passion have made a global difference</div>
+    <div class="passage-text">
+      <p>Dr Sarah Clarke <sup class="bnum">1</sup><select class="bsel" id="t3r1" data-correct="has worked"><option value="">select</option><option>has worked</option><option>worked</option><option>works</option><option>had worked</option></select> as a nutritionist for over fifteen years and shows no sign of slowing down. Last year, she <sup class="bnum">2</sup><select class="bsel" id="t3r2" data-correct="published"><option value="">select</option><option>published</option><option>has published</option><option>publishes</option><option>had published</option></select> a book on healthy eating habits that became an international bestseller within weeks of its release.</p>
+      <p>Since then, she <sup class="bnum">3</sup><select class="bsel" id="t3r3" data-correct="has appeared"><option value="">select</option><option>has appeared</option><option>appeared</option><option>appears</option><option>had appeared</option></select> on television programmes in twelve different countries. In 2019, she <sup class="bnum">4</sup><select class="bsel" id="t3r4" data-correct="created"><option value="">select</option><option>created</option><option>has created</option><option>creates</option><option>had created</option></select> a free online course that <sup class="bnum">5</sup><select class="bsel" id="t3r5" data-correct="has already helped"><option value="">select</option><option>has already helped</option><option>already helped</option><option>already helps</option><option>had already helped</option></select> over half a million people transform their relationship with food.</p>
+      <p>She <sup class="bnum">6</sup><select class="bsel" id="t3r6" data-correct="has always believed"><option value="">select</option><option>has always believed</option><option>always believed</option><option>always believes</option><option>had always believed</option></select> that good health starts in the kitchen, not the gym. Recently, she <sup class="bnum">7</sup><select class="bsel" id="t3r7" data-correct="has launched"><option value="">select</option><option>has launched</option><option>launched</option><option>launches</option><option>had launched</option></select> a new app that tracks hydration, sleep and nutritional balance in real time.</p>
+      <p>She <sup class="bnum">8</sup><select class="bsel" id="t3r8" data-correct="studied"><option value="">select</option><option>studied</option><option>has studied</option><option>studies</option><option>had studied</option></select> biochemistry at the University of Lisbon in the 1990s before specialising in nutrition. She <sup class="bnum">9</sup><select class="bsel" id="t3r9" data-correct="has never regretted"><option value="">select</option><option>has never regretted</option><option>never regretted</option><option>never regrets</option><option>had never regretted</option></select> that decision. Last month, a major European magazine <sup class="bnum">10</sup><select class="bsel" id="t3r10" data-correct="named"><option value="">select</option><option>named</option><option>has named</option><option>names</option><option>had named</option></select> her one of the most influential health professionals of the decade.</p>
+    </div>
+  </div>
+  <div class="btn-row"><button class="check-btn" id="t3-rb-ck" onclick="checkPartB('t3')">Check answers</button><button class="reset-btn" id="t3-rb-rs" onclick="resetPartB('t3')">Try Again</button></div>
+  <div class="read-score-box" id="t3-rsb"><div class="rs-lbl">Part B score</div><div class="rs-num" id="t3-rsn">–</div><div class="rs-of">out of 10</div><div class="rs-msg" id="t3-rsm"></div></div>
+  <div class="sec-head" id="t3-reh" style="display:none;margin-top:22px"><div class="sec-label" style="background:var(--navy)">Explanations</div><div class="sec-title">Gap-by-gap analysis</div></div>
+  <div class="read-exp-list" id="t3-rel"></div>
+  <div class="sec-nav"><button class="sec-nav-btn next" onclick="showSection('t4')">→ Present Perfect / Past Perfect</button></div>
+  </main></div>
+</div>
+
+<!-- ══════════ TAB 4 ══════════ -->
+<div class="tab-panel" id="tab-t4">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">Present Perfect / Past Perfect</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+  <div class="intro">Aqui podes aprender o contraste entre o <strong>Present Perfect</strong> e o <strong>Past Perfect</strong> com o tema <strong>Healthy Lifestyles</strong>. Podes realizar os exercícios de forma independente. Para saberes as respostas corretas e a sua explicação, clica em <em>Check answers</em>.<br><button class="grammar-link" onclick="goGrammar('ref-pp')">📖 Present Perfect</button> <button class="grammar-link" onclick="goGrammar('ref-pap')">📖 Past Perfect</button></div>
+  <div class="legend">
+    <span class="leg-badge" style="background:var(--pp-bg);color:var(--pp)">Present Perfect</span>
+    <span class="leg-badge" style="background:var(--pap-bg);color:var(--pap)">Past Perfect</span>
+  </div>
+  <div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part A</div><div class="sec-title">Choose the correct tense, 15 questions</div></div>
+  <div class="score-bar">
+    <div class="score-cell"><div class="score-num" id="t4-sc">0</div><div class="score-lbl" id="t4-sc-lbl">Answered</div></div>
+    <div class="score-div" id="t4-sd" style="display:none"></div>
+    <div class="score-cell" id="t4-sw-cell" style="display:none"><div class="score-num" id="t4-sw">–</div><div class="score-lbl">Score</div></div>
+    <div class="score-div"></div>
+    <div class="score-cell"><div class="score-num" id="t4-sl">15</div><div class="score-lbl" id="t4-sl-lbl">Remaining</div></div>
+    <div class="score-div"></div>
+    <div class="prog-wrap"><div class="prog-meta"><span id="t4-pl">0 of 15 answered</span><span id="t4-pp">0 %</span></div><div class="prog-bg"><div class="prog-fill" id="t4-pf"></div></div></div>
+  </div>
+  <div class="questions" id="t4-qc"></div>
+  <div class="btn-row"><button class="check-btn" id="t4-ck" onclick="checkPartA('t4')">Check answers</button><button class="restart-btn" id="t4-rs" onclick="restartA('t4')" style="display:none">Try Again</button></div>
+  <div class="final-panel" id="t4-fp"><div class="final-inner"><div class="final-lbl">Part A score</div><div class="final-num" id="t4-fn">–</div><div class="final-of">out of 15</div><div class="final-msg" id="t4-fm"></div><div class="final-sub" id="t4-fs"></div></div></div>
+
+  <div class="part-sep"><div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part B</div><div class="sec-title">Reading, A Journey to Better Health, 10 gaps</div></div></div>
+  <div class="passage-card">
+    <div class="passage-title">A Journey to Better Health</div>
+    <div class="passage-byline">How one man's commitment to change transformed his life and inspired a community</div>
+    <div class="passage-text">
+      <p>James <sup class="bnum">1</sup><select class="bsel" id="t4r1" data-correct="has followed"><option value="">select</option><option>has followed</option><option>had followed</option><option>followed</option><option>follows</option></select> a strict fitness routine for the past two years and the results have been remarkable. Before he started, he <sup class="bnum">2</sup><select class="bsel" id="t4r2" data-correct="had never exercised"><option value="">select</option><option>had never exercised</option><option>has never exercised</option><option>never exercised</option><option>never exercises</option></select> regularly in his life, not once.</p>
+      <p>By the time he met his personal trainer in 2022, he <sup class="bnum">3</sup><select class="bsel" id="t4r3" data-correct="had gained"><option value="">select</option><option>had gained</option><option>has gained</option><option>gained</option><option>was gaining</option></select> fifteen kilograms and was feeling constantly exhausted. Since then, everything <sup class="bnum">4</sup><select class="bsel" id="t4r4" data-correct="has changed"><option value="">select</option><option>has changed</option><option>had changed</option><option>changed</option><option>changes</option></select> dramatically. He <sup class="bnum">5</sup><select class="bsel" id="t4r5" data-correct="has lost"><option value="">select</option><option>has lost</option><option>had lost</option><option>lost</option><option>loses</option></select> all the weight he had gained and now feels completely full of energy.</p>
+      <p>His doctor's notes showed that James <sup class="bnum">6</sup><select class="bsel" id="t4r6" data-correct="had consumed"><option value="">select</option><option>had consumed</option><option>has consumed</option><option>consumed</option><option>consumes</option></select> nearly 4,000 calories a day before starting the programme. Since adopting a Mediterranean diet, he <sup class="bnum">7</sup><select class="bsel" id="t4r7" data-correct="hasn't touched"><option value="">select</option><option>hasn't touched</option><option>hadn't touched</option><option>didn't touch</option><option>doesn't touch</option></select> fast food once.</p>
+      <p>The blood results showed that his cholesterol <sup class="bnum">8</sup><select class="bsel" id="t4r8" data-correct="had improved"><option value="">select</option><option>had improved</option><option>has improved</option><option>improved</option><option>improves</option></select> significantly since his previous check-up six months earlier. His trainer, who <sup class="bnum">9</sup><select class="bsel" id="t4r9" data-correct="has worked"><option value="">select</option><option>has worked</option><option>had worked</option><option>worked</option><option>works</option></select> with him for two years, says the transformation is the most impressive he has ever seen. James <sup class="bnum">10</sup><select class="bsel" id="t4r10" data-correct="has already become"><option value="">select</option><option>has already become</option><option>had already become</option><option>already became</option><option>already becomes</option></select> an inspiration to dozens of people in his local community.</p>
+    </div>
+  </div>
+  <div class="btn-row"><button class="check-btn" id="t4-rb-ck" onclick="checkPartB('t4')">Check answers</button><button class="reset-btn" id="t4-rb-rs" onclick="resetPartB('t4')">Try Again</button></div>
+  <div class="read-score-box" id="t4-rsb"><div class="rs-lbl">Part B score</div><div class="rs-num" id="t4-rsn">–</div><div class="rs-of">out of 10</div><div class="rs-msg" id="t4-rsm"></div></div>
+  <div class="sec-head" id="t4-reh" style="display:none;margin-top:22px"><div class="sec-label" style="background:var(--navy)">Explanations</div><div class="sec-title">Gap-by-gap analysis</div></div>
+  <div class="read-exp-list" id="t4-rel"></div>
+  <div class="sec-nav"><button class="sec-nav-btn next" onclick="showSection('t6')">→ Past Simple / Past Perfect</button></div>
+  </main></div>
+</div>
+
+<!-- ══════════ TAB 5: GRAMMAR ══════════ -->
+<div class="tab-panel" id="tab-t5">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">Grammar</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+
+  <div class="intro">Esta secção de gramática explica os pares de tempos verbais abordados nos exercícios. Os exemplos são em inglês; as explicações estão em <strong>português europeu</strong>. Usa esta secção antes, durante ou após os exercícios, sempre que precisares de rever uma regra. Clica em <strong>🔊 Ouvir</strong> para ouvir cada explicação.</div>
+
+  <!-- PRESENT SIMPLE -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--ps)">Present Simple</div>
+    <div class="sec-title">Present Simple, usos e forma <button class="tts-btn" onclick="speakSection('ps')" id="tts-ps">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-ps">
+    <div class="note">O <strong>Present Simple</strong> usa-se para expressar factos permanentes, hábitos, rotinas e verdades gerais. Não descreve o que está a acontecer neste momento. Descreve o que acontece <em>geralmente</em> ou <em>sempre</em>.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:var(--ps-bg);border-left:4px solid var(--ps)"><div class="struct-lbl" style="color:var(--ps)">Afirmativa</div><div class="struct-form">Subject + verb (+ -s 3rd person)</div><div class="struct-det">She listens to jazz every evening.</div></div>
+      <div class="struct-part" style="background:#edf3fa;border-left:4px solid #7aabdd"><div class="struct-lbl" style="color:#3a6a99">Negativa</div><div class="struct-form">Subject + don't / doesn't + infinitive</div><div class="struct-det">He doesn't watch reality shows.</div></div>
+      <div class="struct-part" style="background:#edf3fa;border-left:4px solid #7aabdd"><div class="struct-lbl" style="color:#3a6a99">Interrogativa</div><div class="struct-form">Do / Does + subject + infinitive?</div><div class="struct-det">Does this theatre offer student tickets?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:var(--ps)"><span class="tag tag-aff">AFF</span> factos e hábitos</div><div class="ex-sentence" style="background:var(--ps-bg);border-color:var(--ps)">The museum <span class="hl" style="color:var(--ps)">offers</span> free entry every Sunday. This is a permanent policy.</div></div>
+      <div><div class="ex-lbl" style="color:var(--ps)"><span class="tag tag-neg">NEG</span> preferência permanente</div><div class="ex-sentence" style="background:var(--ps-bg);border-color:var(--ps)">She <span class="hl" style="color:var(--ps)">doesn't enjoy</span> classical music. She prefers electronic genres.</div></div>
+      <div><div class="ex-lbl" style="color:var(--ps)"><span class="tag tag-int">INT</span> frequência habitual</div><div class="ex-sentence" style="background:var(--ps-bg);border-color:var(--ps)">How often <span class="hl" style="color:var(--ps)">does</span> she <span class="hl" style="color:var(--ps)">go</span> to the contemporary art gallery?</div></div>
+    </div>
+    <div class="rule-box" style="background:var(--ps-bg);border-color:var(--ps)"><strong style="color:var(--ps)">Palavras-chave:</strong> <em>always, usually, often, sometimes, never, every day/week/year, on Sundays, generally, as a rule.</em></div>
+
+    <!-- STATIVE VERBS -->
+    <div class="sv-box">
+      <h4>O que são stative verbs (verbos de estado)?</h4>
+      <p><strong>Stative verbs</strong> descrevem estados, sentimentos, perceções, crenças e relações de posse. Não descrevem ações em curso. Por esse motivo, <strong>nunca se usam no Continuous</strong> em inglês, mesmo quando descrevem o momento presente.</p>
+      <p>Os stative verbs mais comuns são: <em>know, believe, understand, remember, think</em> (no sentido de "achar"), <em>see, hear, smell, taste, feel, like, love, hate, want, need, prefer, wish, have</em> (no sentido de "ter/possuir"), <em>belong, own, seem, appear, look</em> (no sentido de "parecer").</p>
+      <p>Exemplos corretos:<br>
+        ✓ <em>She <strong>knows</strong> the answer.</em> (correto)<br>
+        ✗ <span style="text-decoration:line-through">She is knowing the answer.</span> (errado)<br>
+        ✓ <em>I <strong>believe</strong> you.</em> (correto)<br>
+        ✗ <span style="text-decoration:line-through">I am believing you.</span> (errado)
+      </p>
+      <p><strong>Atenção:</strong> alguns verbos podem ser estativos <em>ou</em> dinâmicos, conforme o significado. Por exemplo: <em>I <strong>have</strong> a car</em> (posse, estativo) vs. <em>She <strong>is having</strong> lunch</em> (ação, dinâmico).</p>
+      <p>Os verbos <em>feel, look, smell</em> e <em>taste</em> têm o mesmo comportamento duplo:<br>✓ <em>She <strong>feels</strong> tired.</em> (estativo — estado) &nbsp;vs.&nbsp; <em>She <strong>is feeling</strong> the fabric.</em> (dinâmico — ação deliberada)<br>✓ <em>It <strong>looks</strong> good.</em> (estativo — aparência) &nbsp;vs.&nbsp; <em>He <strong>is looking</strong> at the screen.</em> (dinâmico — ação de olhar)<br>Regra prática: se o verbo descreve algo que a pessoa <em>faz</em> conscientemente, pode usar o Continuous.</p>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PRESENT CONTINUOUS -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--pc)">Present Continuous</div>
+    <div class="sec-title">Present Continuous, usos e forma <button class="tts-btn" onclick="speakSection('pc')" id="tts-pc">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-pc">
+    <div class="note">O <strong>Present Continuous</strong> descreve ações em curso <em>neste momento</em>, situações temporárias, tendências em evolução e planos futuros já confirmados. Em português europeu, a estrutura equivalente é <strong>estar a + infinitivo</strong>.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:var(--pc-bg);border-left:4px solid var(--pc)"><div class="struct-lbl" style="color:var(--pc)">Afirmativa</div><div class="struct-form">Subject + am/is/are + verb-ing</div><div class="struct-det">The artists are painting a mural right now.</div></div>
+      <div class="struct-part" style="background:#f0faf8;border-left:4px solid #5aada0"><div class="struct-lbl" style="color:#3d8a7e">Negativa</div><div class="struct-form">Subject + am/is/are + not + verb-ing</div><div class="struct-det">She isn't showing her work this month.</div></div>
+      <div class="struct-part" style="background:#f0faf8;border-left:4px solid #5aada0"><div class="struct-lbl" style="color:#3d8a7e">Interrogativa</div><div class="struct-form">Am/Is/Are + subject + verb-ing?</div><div class="struct-det">Is the director postponing the premiere?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:var(--pc)"><span class="tag tag-aff">AFF</span> ação em curso</div><div class="ex-sentence" style="background:var(--pc-bg);border-color:var(--pc)">Look! The street artist <span class="hl" style="color:var(--pc)">is painting</span> an incredible mural on that wall right now.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pc)"><span class="tag tag-neg">NEG</span> situação temporária</div><div class="ex-sentence" style="background:var(--pc-bg);border-color:var(--pc)">They <span class="hl" style="color:var(--pc)">aren't filming</span> the new series right now. Production is on a break until spring.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pc)"><span class="tag tag-int">INT</span> tendência atual</div><div class="ex-sentence" style="background:var(--pc-bg);border-color:var(--pc)">What kind of music <span class="hl" style="color:var(--pc)">are</span> young people <span class="hl" style="color:var(--pc)">listening to</span> most at festivals these days?</div></div>
+    </div>
+    <div class="rule-box" style="background:var(--pc-bg);border-color:var(--pc)"><strong style="color:var(--pc)">Palavras-chave:</strong> <em>right now, at the moment, currently, at present, this week/month/year, look!, listen!, these days, nowadays</em> (tendência).<br>⚠️ O Present Continuous também se usa para planos futuros já confirmados: <em>She is performing at the festival next Saturday.</em></div>
+  </div>
+  <div class="error-card" style="margin-top:0">
+    <div class="error-row"><span class="tag-wrong">errado</span><span class="struck">She <em>is knowing</em> a lot about nutrition.</span></div>
+    <div class="error-row"><span class="tag-ok">correto</span><span>She <strong>knows</strong> a lot about nutrition. <span style="color:var(--muted);font-size:15px">→ <em>Know</em> é um stative verb. Não se usa no Continuous em inglês, mesmo que o momento seja o presente.</span></span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PAST SIMPLE -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--pas)">Past Simple</div>
+    <div class="sec-title">Past Simple, usos e forma <button class="tts-btn" onclick="speakSection('pas')" id="tts-pas">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-pas">
+    <div class="note">O <strong>Past Simple</strong> usa-se para ações concluídas no passado, especialmente quando a referência temporal está explícita ou claramente implícita. Não há ligação com o presente. O evento pertence inteiramente ao passado.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:var(--pas-bg);border-left:4px solid var(--pas)"><div class="struct-lbl" style="color:var(--pas)">Afirmativa</div><div class="struct-form">Subject + Verb Form 2 (Past Simple)</div><div class="struct-det">She created her first channel at thirteen.</div></div>
+      <div class="struct-part" style="background:#fff8ec;border-left:4px solid #c29a50"><div class="struct-lbl" style="color:#8a6020">Negativa</div><div class="struct-form">Subject + didn't + infinitive</div><div class="struct-det">He didn't use social media until sixteen.</div></div>
+      <div class="struct-part" style="background:#fff8ec;border-left:4px solid #c29a50"><div class="struct-lbl" style="color:#8a6020">Interrogativa</div><div class="struct-form">Did + subject + infinitive?</div><div class="struct-det">Did you have a smartphone before secondary school?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:var(--pas)"><span class="tag tag-aff">AFF</span> ação concluída</div><div class="ex-sentence" style="background:var(--pas-bg);border-color:var(--pas)">The influencer <span class="hl" style="color:var(--pas)">posted</span> three viral videos in a single month and <span class="hl" style="color:var(--pas)">gained</span> a million new followers.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pas)"><span class="tag tag-neg">NEG</span> ação por omissão com referência temporal</div><div class="ex-sentence" style="background:var(--pas-bg);border-color:var(--pas)">The school <span class="hl" style="color:var(--pas)">didn't ban</span> mobile phones until a new policy was introduced in 2018.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pas)"><span class="tag tag-int">INT</span> momento específico passado</div><div class="ex-sentence" style="background:var(--pas-bg);border-color:var(--pas)">When <span class="hl" style="color:var(--pas)">did</span> teenagers first <span class="hl" style="color:var(--pas)">start</span> using Instagram more than Facebook?</div></div>
+    </div>
+    <div class="rule-box" style="background:var(--pas-bg);border-color:var(--pas)"><strong style="color:var(--pas)">Palavras-chave:</strong> <em>yesterday, last night/week/month/year, in 2010, ago, when</em> (passado específico)<em>, at that moment, in January, on Monday.</em><br>⚠️ Nunca uses o Present Perfect com expressões de tempo passado definido como <em>yesterday</em> ou <em>last year</em>. Usa sempre o Past Simple.<br><strong style="color:var(--pas)">Verb Form 2 (Past Simple):</strong> verbos regulares acrescentam <em>-ed</em> (ex: <em>worked, played</em>); verbos irregulares têm formas próprias (ex: <em>went, saw, took</em>).</div>
+  <div class="vf-link" style="margin-top:14px">📚 Precisas de ajuda para estudar as <em>verb forms</em>? <a href="https://verbforms-tereza-afonso-students-mar2026.pages.dev/" target="_blank" rel="noopener">Clica aqui.</a></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PAST CONTINUOUS -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--pac)">Past Continuous</div>
+    <div class="sec-title">Past Continuous, usos e forma <button class="tts-btn" onclick="speakSection('pac')" id="tts-pac">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-pac">
+    <div class="note">O <strong>Past Continuous</strong> descreve uma ação que estava em curso num momento específico do passado. Usa-se frequentemente como ação de fundo que é interrompida por outra ação no Past Simple.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:var(--pac-bg);border-left:4px solid var(--pac)"><div class="struct-lbl" style="color:var(--pac)">Afirmativa</div><div class="struct-form">Subject + was/were + verb-ing</div><div class="struct-det">She was scrolling through social media at midnight.</div></div>
+      <div class="struct-part" style="background:#f5f0ff;border-left:4px solid #a07ada"><div class="struct-lbl" style="color:#7a4ab0">Negativa</div><div class="struct-form">Subject + was/were + not + verb-ing</div><div class="struct-det">He wasn't paying attention in class.</div></div>
+      <div class="struct-part" style="background:#f5f0ff;border-left:4px solid #a07ada"><div class="struct-lbl" style="color:#7a4ab0">Interrogativa</div><div class="struct-form">Was/Were + subject + verb-ing?</div><div class="struct-det">What were they doing when the internet went down?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:var(--pac)"><span class="tag tag-aff">AFF</span> ação interrompida</div><div class="ex-sentence" style="background:var(--pac-bg);border-color:var(--pac)">While he <span class="hl" style="color:var(--pac)">was scrolling</span> through social media, he came across a video that changed his view.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pac)"><span class="tag tag-neg">NEG</span> estado de fundo negativo</div><div class="ex-sentence" style="background:var(--pac-bg);border-color:var(--pac)">The boy <span class="hl" style="color:var(--pac)">wasn't listening</span> to the teacher. He was secretly texting under his desk.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pac)"><span class="tag tag-int">INT</span> ação em curso no passado</div><div class="ex-sentence" style="background:var(--pac-bg);border-color:var(--pac)">What <span class="hl" style="color:var(--pac)">were</span> they <span class="hl" style="color:var(--pac)">doing</span> when the internet went down during their online exam?</div></div>
+    </div>
+    <div class="rule-box" style="background:var(--pac-bg);border-color:var(--pac)"><strong style="color:var(--pac)">Estruturas típicas:</strong> <em>while + Past Continuous</em> (ação de fundo) + <em>Past Simple</em> (interrupção).<br>⚠️ Quando duas ações de fundo ocorrem simultaneamente, ambas ficam no Continuous: <em>While Emma was watching a stream, Tom was doing his homework.</em></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- WHEN / WHILE -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:#c0392b">When / While</div>
+    <div class="sec-title">When e While, regras, diferenças e exceções <button class="tts-btn" onclick="speakSection('ww')" id="tts-ww">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-ww">
+    <div class="note"><em>When</em> e <em>while</em> são as duas conjunções mais usadas para ligar o Past Simple ao Past Continuous. Embora possam parecer intercambiáveis, têm valores temporais distintos que determinam qual dos dois tempos verbais aparece em cada oração.</div>
+
+    <div style="margin-bottom:16px">
+      <div class="ex-lbl" style="color:#c0392b;margin-bottom:8px">WHILE, durante o período em que</div>
+      <div class="rule-box" style="background:#fdf5f4;border-color:#c0392b;margin-top:0">
+        <strong style="color:#c0392b">Regra principal:</strong> <em>While</em> introduz uma ação de fundo longa. O verbo da oração com <em>while</em> fica quase sempre no <strong>Past Continuous</strong>.<br><br>
+        ① <em>While + Past Continuous</em> seguido de <em>Past Simple</em> (interrupção):<br>
+        <span style="color:var(--muted)">While she <strong>was scrolling</strong> through her feed, her phone <strong>died</strong>.</span><br><br>
+        ② <em>While + Past Continuous</em> seguido de <em>Past Continuous</em> (simultaneidade):<br>
+        <span style="color:var(--muted)">While Emma <strong>was watching</strong> the stream, Tom <strong>was doing</strong> his homework.</span>
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px">
+      <div class="ex-lbl" style="color:#c0392b;margin-bottom:8px">WHEN, quando / no momento em que</div>
+      <div class="rule-box" style="background:#fdf5f4;border-color:#c0392b;margin-top:0">
+        <strong style="color:#c0392b">Regra principal:</strong> <em>When</em> pode introduzir o evento breve (Past Simple) ou o momento de referência em que algo decorria (Past Continuous noutra oração).<br><br>
+        ① <em>When + Past Simple</em> seguido de <em>Past Continuous</em> (ação de fundo interrompida):<br>
+        <span style="color:var(--muted)">They <strong>were playing</strong> a game <strong>when</strong> their parents <strong>walked</strong> in.</span><br><br>
+        ② <em>When + Past Simple</em> seguido de <em>Past Simple</em> (sequência de eventos concluídos):<br>
+        <span style="color:var(--muted)">When she <strong>arrived</strong> home, she <strong>turned</strong> on her laptop immediately.</span>
+      </div>
+    </div>
+
+    <table class="cmp-table" style="margin-bottom:16px">
+      <tr><th>Conjunção</th><th>Tipo de ação que introduz</th><th>Tempo verbal típico na sua oração</th></tr>
+      <tr><td style="color:#c0392b;background:#fdf5f4">while</td><td>Ação longa, em curso, de fundo</td><td><strong>Past Continuous</strong>, was/were + verb-ing<em>While she was revising...</em></td></tr>
+      <tr><td style="color:#c0392b;background:#fdf5f4">when</td><td>Evento pontual ou momento de referência</td><td><strong>Past Simple</strong>, Verb Form 2<em>When he called, she answered.</em></td></tr>
+      <tr><td style="color:#c0392b;background:#fdf5f4">when</td><td>Momento em que decorria algo (fundo)</td><td><strong>Past Continuous</strong> noutra oração<em>She was sleeping when he called.</em></td></tr>
+    </table>
+
+    <div class="ex-lbl" style="color:#c0392b;margin-bottom:8px">EXCEÇÕES E CASOS ESPECIAIS</div>
+    <div class="rule-box" style="background:#fdf5f4;border-color:#c0392b;margin-top:0">
+      <strong style="color:#c0392b">① While com Past Simple</strong>, possível, mas raro e formal:<br>
+      <span style="color:var(--muted)"><em>While she revised, he cooked dinner.</em>, Aceitável; menos natural do que o Past Continuous em inglês corrente.</span><br><br>
+      <strong style="color:#c0392b">② When com dois Past Continuous</strong>, raro; prefere-se <em>while</em>:<br>
+      <span style="color:var(--muted)"><em>When she was talking, he was listening.</em>, Gramaticalmente correto; mas <em>while</em> é a escolha natural para duas ações simultâneas.</span><br><br>
+      <strong style="color:#c0392b">③ Stative verbs com while</strong>, nunca usam o Continuous:<br>
+      <span style="color:var(--muted)">✗ <span style="text-decoration:line-through">While she was knowing the answer...</span><br>✓ <em>While she knew the answer, she chose not to speak.</em></span><br><br>
+      <strong style="color:#c0392b">④ Sequência rápida com when</strong>, dois eventos breves e sequenciais, ambos no Past Simple:<br>
+      <span style="color:var(--muted)"><em>When the alarm went off, she jumped out of bed.</em>, Nenhum estava "em progresso"; ambos foram instantâneos.</span>
+    </div>
+
+    <div class="examples" style="margin-top:16px">
+      <div><div class="ex-lbl" style="color:#c0392b"><span class="tag tag-aff">AFF</span> while, ação de fundo + interrupção</div>
+        <div class="ex-sentence" style="background:#fdf5f4;border-color:#c0392b">While he <span class="hl" style="color:#c0392b">was checking</span> his notifications, his sister <span class="hl" style="color:#c0392b">came</span> in and switched off the wi-fi router.</div></div>
+      <div><div class="ex-lbl" style="color:#c0392b"><span class="tag tag-neg">NEG</span> when, referência temporal, estado de fundo</div>
+        <div class="ex-sentence" style="background:#fdf5f4;border-color:#c0392b">She <span class="hl" style="color:#c0392b">wasn't paying</span> attention when the teacher <span class="hl" style="color:#c0392b">explained</span> the task, so she had to ask again.</div></div>
+      <div><div class="ex-lbl" style="color:#c0392b"><span class="tag tag-int">INT</span> when, ação em curso + momento de referência</div>
+        <div class="ex-sentence" style="background:#fdf5f4;border-color:#c0392b">What <span class="hl" style="color:#c0392b">were</span> you <span class="hl" style="color:#c0392b">doing</span> when the internet <span class="hl" style="color:#c0392b">cut</span> out during your online exam?</div></div>
+    </div>
+  </div>
+  <div class="error-card" style="margin-top:0">
+    <div class="error-row"><span class="tag-wrong">errado</span><span class="struck">While she <em>scrolled</em> through her feed, she found a viral video.</span></div>
+    <div class="error-row"><span class="tag-ok">correto</span><span>While she <strong>was scrolling</strong> through her feed, she found a viral video. <span style="color:var(--muted);font-size:15px">→ A oração com <em>while</em> descreve a ação de fundo; usa o Past Continuous. A interrupção usa o Past Simple.</span></span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PRESENT PERFECT -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--pp)">Present Perfect</div>
+    <div class="sec-title">Present Perfect, usos e forma <button class="tts-btn" onclick="speakSection('pp')" id="tts-pp">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-pp">
+    <div class="note">O <strong>Present Perfect</strong> liga o passado ao presente. Descreve experiências de vida, ações recentes com consequências presentes e situações que começaram no passado e continuam até agora. <strong>Atenção:</strong> este tempo NÃO equivale ao Pretérito Perfeito do português europeu.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:var(--pp-bg);border-left:4px solid var(--pp)"><div class="struct-lbl" style="color:var(--pp)">Afirmativa</div><div class="struct-form">Subject + have/has + Verb Form 3 (Past Participle)</div><div class="struct-det">She has run three marathons this year.</div></div>
+      <div class="struct-part" style="background:#f2f8ee;border-left:4px solid #5a9e5a"><div class="struct-lbl" style="color:#3d7a3d">Negativa</div><div class="struct-form">Subject + haven't/hasn't + Verb Form 3</div><div class="struct-det">I haven't eaten fast food since January.</div></div>
+      <div class="struct-part" style="background:#f2f8ee;border-left:4px solid #5a9e5a"><div class="struct-lbl" style="color:#3d7a3d">Interrogativa</div><div class="struct-form">Have/Has + subject + Verb Form 3?</div><div class="struct-det">Have you ever spoken to a nutritionist?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:var(--pp)"><span class="tag tag-aff">AFF</span> experiência / resultado atual</div><div class="ex-sentence" style="background:var(--pp-bg);border-color:var(--pp)">Many people <span class="hl" style="color:var(--pp)">have changed</span> their eating habits significantly since the COVID pandemic began.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pp)"><span class="tag tag-neg">NEG</span> com since/for</div><div class="ex-sentence" style="background:var(--pp-bg);border-color:var(--pp)">I <span class="hl" style="color:var(--pp)">haven't eaten</span> fast food since I started my plant-based diet three months ago.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pp)"><span class="tag tag-int">INT</span> com ever</div><div class="ex-sentence" style="background:var(--pp-bg);border-color:var(--pp)"><span class="hl" style="color:var(--pp)">Have</span> you ever <span class="hl" style="color:var(--pp)">spoken</span> to a registered nutritionist about your daily diet?</div></div>
+    </div>
+    <div class="rule-box" style="background:var(--pp-bg);border-color:var(--pp)"><strong style="color:var(--pp)">Palavras-chave:</strong> <em>already, yet, just, ever, never, recently, lately, so far, since</em> [ponto no tempo]<em>, for</em> [período de tempo]<em>, today, this week/month/year</em> (período ainda não terminado).<br>⚠️ <strong>Nunca</strong> uses o Present Perfect com expressões de tempo fechado: <em>yesterday, last year, in 2010, ago.</em> Usa o Past Simple.<br><strong style="color:var(--pp)">Verb Form 3 (Past Participle):</strong> verbos regulares acrescentam <em>-ed</em> (ex: <em>worked, played</em>); irregulares têm formas próprias (ex: <em>gone, seen, taken</em>).</div>
+  <div class="vf-link" style="margin-top:14px">📚 Precisas de ajuda para estudar as <em>verb forms</em>? <a href="https://verbforms-tereza-afonso-students-mar2026.pages.dev/" target="_blank" rel="noopener">Clica aqui.</a></div>
+
+    <!-- PP vs PE -->
+    <div class="ppep-box">
+      <h4>⚠️ Present Perfect em inglês ≠ Pretérito Perfeito em português europeu</h4>
+      <table class="ppep-table">
+        <tr>
+          <th style="width:44%">Inglês</th>
+          <th style="width:44%">Português europeu</th>
+          <th style="width:12%">⚠️</th>
+        </tr>
+        <tr>
+          <td><em>I <strong>have seen</strong> that film.</em></td>
+          <td><em>Vi esse filme.</em></td>
+          <td>PP em inglês = Pretérito Perfeito Simples em português</td>
+        </tr>
+        <tr>
+          <td><em>I <strong>have been</strong> to the gym today.</em></td>
+          <td><em>Hoje fui ao ginásio.</em></td>
+          <td><em>Today</em> mantém o período aberto — mas em português usa-se o Perfeito Simples</td>
+        </tr>
+        <tr>
+          <td><em>I <strong>saw</strong> that film <u>yesterday</u>.</em><br><small style="color:var(--muted)">→ Past Simple, não Present Perfect</small></td>
+          <td><em>Ontem vi esse filme.</em></td>
+          <td><em>Yesterday</em> fecha o tempo — em inglês é obrigatório o Past Simple</td>
+        </tr>
+        <tr>
+          <td><em>I <strong>have lived</strong> here <u>for</u> ten years.</em></td>
+          <td><em>Vivo aqui há dez anos.</em></td>
+          <td>PP + <em>for</em> em inglês = Presente do Indicativo + <em>há</em> em português</td>
+        </tr>
+        <tr>
+          <td><em>I <strong>have been doing</strong> this for years.</em><br><small style="color:var(--muted)">→ Present Perfect Continuous</small></td>
+          <td><em>Tenho feito isto há anos.</em></td>
+          <td>O Pretérito Perfeito Composto português corresponde ao PP Continuous inglês — não ao PP simples</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="error-card" style="margin-top:0">
+    <div class="error-row"><span class="tag-wrong">errado</span><span class="struck">I <em>have seen</em> that documentary <em>last week</em>.</span></div>
+    <div class="error-row" style="margin-bottom:14px"><span class="tag-ok">correto</span><span>I <strong>saw</strong> that documentary last week. <span style="color:var(--muted);font-size:15px">→ <em>Last week</em> é uma referência temporal fechada. Usa sempre o Past Simple.</span></span></div>
+    <div class="error-row"><span class="tag-wrong">errado</span><span class="struck">I <em>haven't seen</em> her <em>yesterday</em>.</span></div>
+    <div class="error-row"><span class="tag-ok">correto</span><span>I <strong>didn't see</strong> her yesterday. <span style="color:var(--muted);font-size:15px">→ <em>Yesterday</em> é passado fechado. O Present Perfect é incompatível com expressões de tempo definido.</span></span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PAST PERFECT -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--pap)">Past Perfect</div>
+    <div class="sec-title">Past Perfect, usos e forma <button class="tts-btn" onclick="speakSection('pap')" id="tts-pap">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-pap">
+    <div class="note">O <strong>Past Perfect</strong> descreve uma ação que aconteceu <strong>antes</strong> de outra ação no passado. É o "passado do passado", usado para estabelecer uma sequência temporal clara numa narrativa.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:var(--pap-bg);border-left:4px solid var(--pap)"><div class="struct-lbl" style="color:var(--pap)">Afirmativa</div><div class="struct-form">Subject + had + Verb Form 3 (Past Participle)</div><div class="struct-det">By the time he met his trainer, he had gained 15 kg.</div></div>
+      <div class="struct-part" style="background:#fdf0f0;border-left:4px solid #c07070"><div class="struct-lbl" style="color:#8a3030">Negativa</div><div class="struct-form">Subject + hadn't + Verb Form 3</div><div class="struct-det">She hadn't eaten enough before the race.</div></div>
+      <div class="struct-part" style="background:#fdf0f0;border-left:4px solid #c07070"><div class="struct-lbl" style="color:#8a3030">Interrogativa</div><div class="struct-form">Had + subject + Verb Form 3?</div><div class="struct-det">Had he ever exercised before joining the gym?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:var(--pap)"><span class="tag tag-aff">AFF</span> sequência temporal</div><div class="ex-sentence" style="background:var(--pap-bg);border-color:var(--pap)">By the time the nutritionist arrived, he <span class="hl" style="color:var(--pap)">had already eaten</span> three meals that exceeded his daily calorie limit.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pap)"><span class="tag tag-neg">NEG</span> antes de outro evento passado</div><div class="ex-sentence" style="background:var(--pap-bg);border-color:var(--pap)">The athlete <span class="hl" style="color:var(--pap)">hadn't eaten</span> enough in the days before the race, which is why she collapsed at the finish line.</div></div>
+      <div><div class="ex-lbl" style="color:var(--pap)"><span class="tag tag-int">INT</span> interrogativa</div><div class="ex-sentence" style="background:var(--pap-bg);border-color:var(--pap)"><span class="hl" style="color:var(--pap)">Had</span> the patient <span class="hl" style="color:var(--pap)">taken</span> the prescribed medication regularly before the side effects appeared?</div></div>
+    </div>
+    <div class="rule-box" style="background:var(--pap-bg);border-color:var(--pap)"><strong style="color:var(--pap)">Palavras-chave:</strong> <em>by the time, before, after, already, when, as soon as, until, once.</em><br>O Past Perfect é o evento <em>mais antigo</em>; o Past Simple é o evento <em>mais recente</em>.<br>⚠️ Se a sequência temporal já for clara graças a <em>before</em> ou <em>after</em>, o Past Simple é possível, mas o Past Perfect é sempre mais preciso e recomendado.</div>
+  <div class="vf-link" style="margin-top:14px">📚 Precisas de ajuda para estudar as <em>verb forms</em>? <a href="https://verbforms-tereza-afonso-students-mar2026.pages.dev/" target="_blank" rel="noopener">Clica aqui.</a></div>
+  </div>
+  <div class="error-card" style="margin-top:0">
+    <div class="error-row"><span class="tag-wrong">errado</span><span class="struck">By the time the doctor arrived, she <em>has already left</em>.</span></div>
+    <div class="error-row"><span class="tag-ok">correto</span><span>By the time the doctor arrived, she <strong>had already left</strong>. <span style="color:var(--muted);font-size:15px">→ A saída aconteceu antes da chegada do médico. O Past Perfect descreve o evento mais antigo dos dois.</span></span></div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- SUMMARY TABLE -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:var(--navy)">Resumo</div>
+    <div class="sec-title">Os quatro pares, tabela comparativa</div>
+  </div>
+  <div class="ref-card" style="padding:0;overflow:hidden;border-top:none">
+    <table class="cmp-table">
+      <tr><th></th><th>Forma</th><th>Referência temporal</th><th>Uso principal</th></tr>
+      <tr><td style="color:var(--ps);background:var(--ps-bg)">Present Simple</td><td>verb (+ -s)<em>She listens / It opens</em></td><td>Presente geral / sempre verdade</td><td>Hábitos, factos, rotinas, verdades gerais</td></tr>
+      <tr><td style="color:var(--pc);background:var(--pc-bg)">Present Continuous</td><td>am/is/are + verb-ing<em>She is listening</em></td><td>Agora / temporariamente agora</td><td>Ações em curso, situações temporárias, tendências</td></tr>
+      <tr><td style="color:var(--pas);background:var(--pas-bg)">Past Simple</td><td>Verb Form 2 (Past Simple)<em>She listened / She went</em></td><td>Passado definido e fechado</td><td>Ações concluídas com referência temporal explícita</td></tr>
+      <tr><td style="color:var(--pac);background:var(--pac-bg)">Past Continuous</td><td>was/were + verb-ing<em>She was listening</em></td><td>Momento específico no passado</td><td>Ação de fundo interrompida, duas ações simultâneas</td></tr>
+      <tr><td style="color:var(--pp);background:var(--pp-bg)">Present Perfect</td><td>have/has + Verb Form 3<em>She has listened</em></td><td>Passado ligado ao presente</td><td>Experiências, resultados atuais, since/for ainda aberto</td></tr>
+      <tr><td style="color:var(--pap);background:var(--pap-bg)">Past Perfect</td><td>had + Verb Form 3<em>She had listened</em></td><td>Antes de outro evento passado</td><td>Sequência de dois eventos passados, o mais antigo</td></tr>
+    </table>
+  </div>
+
+
+  <hr class="divider"/>
+
+  <!-- PRESENT PERFECT CONTINUOUS -->
+  <div class="sec-head">
+    <div class="sec-label" style="background:#3050a0">Present Perfect Continuous</div>
+    <div class="sec-title">Present Perfect Continuous, usos e forma <button class="tts-btn" onclick="speakSection('ppc')" id="tts-ppc">🔊 Ouvir</button></div>
+  </div>
+  <div class="ref-card" id="ref-ppc">
+    <div class="note">O <strong>Present Perfect Continuous</strong> descreve uma ação que <strong>começou no passado e ainda está em curso</strong> (ou acabou muito recentemente), com ênfase na <em>duração</em> ou no <em>processo em si</em>. Contrasta com o Present Perfect simples, que enfatiza o <em>resultado</em> ou o número de vezes que algo aconteceu.</div>
+    <div class="structure">
+      <div class="struct-part" style="background:#e8f0fb;border-left:4px solid #3050a0"><div class="struct-lbl" style="color:#3050a0">Afirmativa</div><div class="struct-form">Subject + have/has + been + verb-ing</div><div class="struct-det">She has been studying Portuguese for eight months.</div></div>
+      <div class="struct-part" style="background:#edf2fb;border-left:4px solid #607ac0"><div class="struct-lbl" style="color:#3050a0">Negativa</div><div class="struct-form">Subject + haven't/hasn't + been + verb-ing</div><div class="struct-det">He hasn't been sleeping well since the trip.</div></div>
+      <div class="struct-part" style="background:#edf2fb;border-left:4px solid #607ac0"><div class="struct-lbl" style="color:#3050a0">Interrogativa</div><div class="struct-form">Have/Has + subject + been + verb-ing?</div><div class="struct-det">How long have you been waiting for a reply?</div></div>
+    </div>
+    <div class="examples">
+      <div><div class="ex-lbl" style="color:#3050a0"><span class="tag tag-aff">AFF</span> duração de atividade em curso</div><div class="ex-sentence" style="background:#e8f0fb;border-color:#3050a0">She <span class="hl" style="color:#3050a0">has been living</span> in Lisbon for eight months and loves every day of it.</div></div>
+      <div><div class="ex-lbl" style="color:#3050a0"><span class="tag tag-neg">NEG</span> interrupção de continuidade</div><div class="ex-sentence" style="background:#e8f0fb;border-color:#3050a0">The grant office <span class="hl" style="color:#3050a0">hasn't been responding</span> to emails, which is causing delays for students.</div></div>
+      <div><div class="ex-lbl" style="color:#3050a0"><span class="tag tag-int">INT</span> com how long</div><div class="ex-sentence" style="background:#e8f0fb;border-color:#3050a0">How long <span class="hl" style="color:#3050a0">have</span> you <span class="hl" style="color:#3050a0">been waiting</span> for a response to your Erasmus+ application?</div></div>
+    </div>
+    <div class="rule-box" style="background:#e8f0fb;border-color:#3050a0"><strong style="color:#3050a0">Palavras-chave:</strong> <em>for, since, how long, all day/week, lately, recently</em> (com ênfase no processo).<br>
+    <strong style="color:#3050a0">Contraste com Present Perfect simples:</strong><br>
+    <em>She has written three postcards.</em> (resultado: três postais escritos, ação completa)<br>
+    <em>She has been writing postcards all afternoon.</em> (processo em curso, ênfase na duração)<br>
+    ⚠️ Os stative verbs (know, like, believe, own...) nunca se usam no Continuous, mesmo neste tempo. Usa o Present Perfect simples: <em>I have known her for years.</em></div>
+  <div class="vf-link" style="margin-top:14px">📚 Precisas de ajuda para estudar as <em>verb forms</em>? <a href="https://verbforms-tereza-afonso-students-mar2026.pages.dev/" target="_blank" rel="noopener">Clica aqui.</a></div>
+  </div>
+  <div class="error-card" style="margin-top:0">
+    <div class="error-row"><span class="tag-wrong">errado</span><span class="struck">I <em>have been knowing</em> her for years.</span></div>
+    <div class="error-row"><span class="tag-ok">correto</span><span>I <strong>have known</strong> her for years. <span style="color:var(--muted);font-size:15px">→ <em>Know</em> é um stative verb. Usa sempre o Present Perfect simples, não o Continuous.</span></span></div>
+  </div>
+
+</div><!-- /tab-t5 -->
+  </main></div>
+</div>
+
+<!-- ══════════ TAB 6: PaS / PaP ══════════ -->
+<div class="tab-panel" id="tab-t6">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">Past Simple / Past Perfect</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+  <div class="intro">Aqui podes aprender o contraste entre o <strong>Past Simple</strong> e o <strong>Past Perfect</strong> com o tema <strong>Challenges</strong>: direitos humanos, consequências da guerra e voluntariado. Podes realizar os exercícios de forma independente. Para saberes as respostas corretas e a sua explicação, clica em <em>Check answers</em>.<br><button class="grammar-link" onclick="goGrammar('ref-pap')">📖 Ver Grammar</button></div>
+  <div class="legend">
+    <span class="leg-badge" style="background:var(--pas-bg);color:var(--pas)">Past Simple</span>
+    <span class="leg-badge" style="background:var(--pap-bg);color:var(--pap)">Past Perfect</span>
+  </div>
+  <div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part A</div><div class="sec-title">Choose the correct tense, 15 questions</div></div>
+  <div class="score-bar">
+    <div class="score-cell"><div class="score-num" id="t6-sc">0</div><div class="score-lbl" id="t6-sc-lbl">Answered</div></div>
+    <div class="score-div" id="t6-sd" style="display:none"></div>
+    <div class="score-cell" id="t6-sw-cell" style="display:none"><div class="score-num" id="t6-sw">–</div><div class="score-lbl">Score</div></div>
+    <div class="score-div"></div>
+    <div class="score-cell"><div class="score-num" id="t6-sl">15</div><div class="score-lbl" id="t6-sl-lbl">Remaining</div></div>
+    <div class="score-div"></div>
+    <div class="prog-wrap"><div class="prog-meta"><span id="t6-pl">0 of 15 answered</span><span id="t6-pp">0 %</span></div><div class="prog-bg"><div class="prog-fill" id="t6-pf"></div></div></div>
+  </div>
+  <div class="questions" id="t6-qc"></div>
+  <div class="btn-row"><button class="check-btn" id="t6-ck" onclick="checkPartA('t6')">Check answers</button><button class="restart-btn" id="t6-rs" onclick="restartA('t6')" style="display:none">Try Again</button></div>
+  <div class="final-panel" id="t6-fp"><div class="final-inner"><div class="final-lbl">Part A score</div><div class="final-num" id="t6-fn">–</div><div class="final-of">out of 15</div><div class="final-msg" id="t6-fm"></div><div class="final-sub" id="t6-fs"></div></div></div>
+
+  <div class="part-sep"><div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part B</div><div class="sec-title">Reading, A Changed World, 10 gaps</div></div></div>
+  <div class="passage-card">
+    <div class="passage-title">A Changed World</div>
+    <div class="passage-byline">How a generation of young volunteers is making a difference</div>
+    <div class="passage-text">
+      <p>When the international volunteer programme <sup class="bnum">1</sup><select class="bsel" id="t6r1" data-correct="launched"><option value="">select</option><option>launched</option><option>had launched</option><option>was launching</option><option>has launched</option></select> in 2018, dozens of young people from across Europe immediately signed up. By the time the first team <sup class="bnum">2</sup><select class="bsel" id="t6r2" data-correct="arrived"><option value="">select</option><option>arrived</option><option>had arrived</option><option>was arriving</option><option>has arrived</option></select> in the conflict zone, the local organisation <sup class="bnum">3</sup><select class="bsel" id="t6r3" data-correct="had already prepared"><option value="">select</option><option>had already prepared</option><option>already prepared</option><option>was already preparing</option><option>has already prepared</option></select> a full programme of activities for them.</p>
+      <p>The volunteers <sup class="bnum">4</sup><select class="bsel" id="t6r4" data-correct="discovered"><option value="">select</option><option>discovered</option><option>had discovered</option><option>were discovering</option><option>have discovered</option></select> that the situation was far more difficult than they <sup class="bnum">5</sup><select class="bsel" id="t6r5" data-correct="had expected"><option value="">select</option><option>had expected</option><option>expected</option><option>were expecting</option><option>have expected</option></select>. Many families <sup class="bnum">6</sup><select class="bsel" id="t6r6" data-correct="had lost"><option value="">select</option><option>had lost</option><option>lost</option><option>were losing</option><option>have lost</option></select> their homes before the ceasefire agreement was signed.</p>
+      <p>One volunteer, Claire, <sup class="bnum">7</sup><select class="bsel" id="t6r7" data-correct="said"><option value="">select</option><option>said</option><option>had said</option><option>was saying</option><option>has said</option></select> that she had never witnessed such resilience before. She <sup class="bnum">8</sup><select class="bsel" id="t6r8" data-correct="had studied"><option value="">select</option><option>had studied</option><option>studied</option><option>was studying</option><option>has studied</option></select> human rights law at university before joining the programme, which gave her a strong foundation for the work.</p>
+      <p>After the project <sup class="bnum">9</sup><select class="bsel" id="t6r9" data-correct="ended"><option value="">select</option><option>ended</option><option>had ended</option><option>was ending</option><option>has ended</option></select>, the team <sup class="bnum">10</sup><select class="bsel" id="t6r10" data-correct="published"><option value="">select</option><option>published</option><option>had published</option><option>were publishing</option><option>has published</option></select> a report on their findings that <span style="color:var(--muted)">was later presented to the UN Human Rights Council</span>.</p>
+    </div>
+  </div>
+  <div class="btn-row"><button class="check-btn" id="t6-rb-ck" onclick="checkPartB('t6')">Check answers</button><button class="reset-btn" id="t6-rb-rs" onclick="resetPartB('t6')">Try Again</button></div>
+  <div class="read-score-box" id="t6-rsb"><div class="rs-lbl">Part B score</div><div class="rs-num" id="t6-rsn">–</div><div class="rs-of">out of 10</div><div class="rs-msg" id="t6-rsm"></div></div>
+  <div class="sec-head" id="t6-reh" style="display:none;margin-top:22px"><div class="sec-label" style="background:var(--navy)">Explanations</div><div class="sec-title">Gap-by-gap analysis</div></div>
+  <div class="read-exp-list" id="t6-rel"></div>
+  <div class="sec-nav"><button class="sec-nav-btn next" onclick="showSection('t7')">→ Present Perfect / Continuous ⭐</button></div>
+  </main></div>
+</div>
+
+<!-- ══════════ TAB 7: PP / PPC (BONUS) ══════════ -->
+<div class="tab-panel" id="tab-t7">
+  <div class="section-hdr">
+    <button class="back-btn" onclick="showCover()">← Início</button>
+    <span class="section-hdr-title">⭐ Present Perfect / Continuous</span>
+    <div class="section-hdr-settings">
+      <button class="hdr-tb-btn" onclick="toggleDark()">🌙</button>
+      <button class="hdr-tb-btn on" onclick="toggleFont()">Sharp</button>
+    </div>
+  </div>
+  <div class="section-body">
+  <main>
+  <div class="intro">Este separador destina-se apenas aos alunos que já atingiram o nível B1. Aqui podes aprender o contraste entre o <strong>Present Perfect</strong> e o <strong>Present Perfect Continuous</strong> com o tema <strong>Going Away</strong>: viagens, intercâmbios e programas Erasmus+. Podes realizar os exercícios de forma independente. Para saberes as respostas corretas e a sua explicação, clica em <em>Check answers</em>.<br><button class="grammar-link" onclick="goGrammar('ref-ppc')">📖 Ver Grammar</button></div>
+  <div class="legend">
+    <span class="leg-badge" style="background:var(--pp-bg);color:var(--pp)">Present Perfect</span>
+    <span class="leg-badge" style="background:#e8f0fb;color:#3050a0">Present Perfect Continuous</span>
+  </div>
+  <div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part A</div><div class="sec-title">Choose the correct tense, 15 questions</div></div>
+  <div class="score-bar">
+    <div class="score-cell"><div class="score-num" id="t7-sc">0</div><div class="score-lbl" id="t7-sc-lbl">Answered</div></div>
+    <div class="score-div" id="t7-sd" style="display:none"></div>
+    <div class="score-cell" id="t7-sw-cell" style="display:none"><div class="score-num" id="t7-sw">–</div><div class="score-lbl">Score</div></div>
+    <div class="score-div"></div>
+    <div class="score-cell"><div class="score-num" id="t7-sl">15</div><div class="score-lbl" id="t7-sl-lbl">Remaining</div></div>
+    <div class="score-div"></div>
+    <div class="prog-wrap"><div class="prog-meta"><span id="t7-pl">0 of 15 answered</span><span id="t7-pp">0 %</span></div><div class="prog-bg"><div class="prog-fill" id="t7-pf"></div></div></div>
+  </div>
+  <div class="questions" id="t7-qc"></div>
+  <div class="btn-row"><button class="check-btn" id="t7-ck" onclick="checkPartA('t7')">Check answers</button><button class="restart-btn" id="t7-rs" onclick="restartA('t7')" style="display:none">Try Again</button></div>
+  <div class="final-panel" id="t7-fp"><div class="final-inner"><div class="final-lbl">Part A score</div><div class="final-num" id="t7-fn">–</div><div class="final-of">out of 15</div><div class="final-msg" id="t7-fm"></div><div class="final-sub" id="t7-fs"></div></div></div>
+
+  <div class="part-sep"><div class="sec-head"><div class="sec-label" style="background:var(--navy)">Part B</div><div class="sec-title">Reading, Away From Home, 10 gaps</div></div></div>
+  <div class="passage-card">
+    <div class="passage-title">Away From Home</div>
+    <div class="passage-byline">A student's account of her Erasmus+ year in Lisbon</div>
+    <div class="passage-text">
+      <p>Sophie <sup class="bnum">1</sup><select class="bsel" id="t7r1" data-correct="has been living"><option value="">select</option><option>has been living</option><option>has lived</option><option>lived</option><option>is living</option></select> in Lisbon for eight months now and says it is the best decision she has ever made. She <sup class="bnum">2</sup><select class="bsel" id="t7r2" data-correct="has already visited"><option value="">select</option><option>has already visited</option><option>has been visiting</option><option>already visited</option><option>is already visiting</option></select> eleven of Portugal's eighteen districts and is determined to see them all before her grant runs out.</p>
+      <p>Since arriving, she <sup class="bnum">3</sup><select class="bsel" id="t7r3" data-correct="has been studying"><option value="">select</option><option>has been studying</option><option>has studied</option><option>studied</option><option>is studying</option></select> Portuguese every day and her progress has been remarkable. Her tutor says she <sup class="bnum">4</sup><select class="bsel" id="t7r4" data-correct="has made"><option value="">select</option><option>has made</option><option>has been making</option><option>made</option><option>is making</option></select> more progress in eight months than most students make in two years.</p>
+      <p>She <sup class="bnum">5</sup><select class="bsel" id="t7r5" data-correct="has been applying"><option value="">select</option><option>has been applying</option><option>has applied</option><option>applied</option><option>is applying</option></select> for a scholarship extension for the past three weeks and is still waiting for a reply. So far, she <sup class="bnum">6</sup><select class="bsel" id="t7r6" data-correct="has sent"><option value="">select</option><option>has sent</option><option>has been sending</option><option>sent</option><option>is sending</option></select> four emails to the grant office and received no response.</p>
+      <p>Back home, her family <sup class="bnum">7</sup><select class="bsel" id="t7r7" data-correct="has been watching"><option value="">select</option><option>has been watching</option><option>has watched</option><option>watched</option><option>is watching</option></select> her journey on social media and says they have never seen her so happy. She <sup class="bnum">8</sup><select class="bsel" id="t7r8" data-correct="has changed"><option value="">select</option><option>has changed</option><option>has been changing</option><option>changed</option><option>is changing</option></select> her career plans as a result of this experience and now wants to work in international education. Her university <sup class="bnum">9</sup><select class="bsel" id="t7r9" data-correct="has been running"><option value="">select</option><option>has been running</option><option>has run</option><option>ran</option><option>is running</option></select> the Erasmus+ programme for over twenty years, and Sophie is determined to give something back. She <sup class="bnum">10</sup><select class="bsel" id="t7r10" data-correct="has already volunteered"><option value="">select</option><option>has already volunteered</option><option>has been volunteering</option><option>already volunteered</option><option>is already volunteering</option></select> to help next year's incoming students settle in.</p>
+    </div>
+  </div>
+  <div class="btn-row"><button class="check-btn" id="t7-rb-ck" onclick="checkPartB('t7')">Check answers</button><button class="reset-btn" id="t7-rb-rs" onclick="resetPartB('t7')">Try Again</button></div>
+  <div class="read-score-box" id="t7-rsb"><div class="rs-lbl">Part B score</div><div class="rs-num" id="t7-rsn">–</div><div class="rs-of">out of 10</div><div class="rs-msg" id="t7-rsm"></div></div>
+  <div class="sec-head" id="t7-reh" style="display:none;margin-top:22px"><div class="sec-label" style="background:var(--navy)">Explanations</div><div class="sec-title">Gap-by-gap analysis</div></div>
+  <div class="read-exp-list" id="t7-rel"></div>
+  <div class="sec-nav"><button class="sec-nav-btn next" onclick="showSection('t5')">→ Grammar</button></div>
+  </main></div>
+</div>
+
+</div><!-- /sections -->
+
+<script>
+/* ══════════════════════════════════════════
+   QUESTION DATA
+══════════════════════════════════════════ */
+const QS_T1 = [
+  {tx:'The museum ___ free entry every Sunday to encourage families and tourists to visit.',op:['offers','offer','is offering','are offering'],ca:0,hint:'every Sunday',ex:'<strong>Present Simple</strong>: política permanente aplicada todos os domingos. O Present Simple usa-se para horários fixos, hábitos e factos que não mudam.'},
+  {tx:'Look! The street artist ___ an incredible mural on the wall of the old library right now.',op:['paints','paint','is painting','are painting'],ca:2,hint:'Look! / right now',ex:'<strong>Present Continuous</strong>: "Look!" e "right now" indicam uma ação em curso neste exato momento. O Present Continuous (am/is/are + verb-ing) descreve ações que estão a acontecer no momento em que se fala.'},
+  {tx:'Music sales are falling this year. More and more teenagers ___ to music through streaming platforms instead of buying albums.',op:['switches','switch','is switching','are switching'],ca:3,hint:'this year / More and more',ex:'<strong>Present Continuous</strong>: "this year" e "more and more" descrevem uma tendência em curso e em crescimento. O Present Continuous usa-se para desenvolvimentos e mudanças que estão a acontecer no presente, não para hábitos permanentes.'},
+  {tx:'This theatre ___ plays in three different languages during the festival season every year.',op:['performs','perform','is performing','are performing'],ca:0,hint:'every year',ex:'<strong>Present Simple</strong>: "every year" indica uma atividade habitual e regular. O Present Simple expressa rotinas, hábitos e factos permanentes.'},
+  {tx:'My sister ___ an online creative writing course this month, and she absolutely loves it.',op:['takes','take','is taking','are taking'],ca:2,hint:'this month',ex:'<strong>Present Continuous</strong>: "this month" indica uma atividade temporária em curso. O Present Continuous descreve situações temporárias que estão atualmente a decorrer.'},
+  {tx:'He ___ to the cinema very often. He prefers watching films from the comfort of his sofa.',op:["doesn't go","don't go","isn't going","aren't going"],ca:0,hint:'very often',ex:'<strong>Present Simple (negative)</strong>: "very often" descreve um padrão habitual. A forma negativa do Present Simple (doesn\'t + infinitive) usa-se para ações por omissão regulares e gerais.'},
+  {tx:'The gallery ___ the Banksy collection at the moment. That exhibition opens next week.',op:["doesn't show","don't show","isn't showing","aren't showing"],ca:2,hint:'at the moment',ex:'<strong>Present Continuous (negative)</strong>: "at the moment" indica um estado temporário e atual. A forma negativa do Present Continuous (isn\'t/aren\'t + verb-ing) descreve o que não está a acontecer neste momento.'},
+  {tx:'She ___ classical music at all. Her tastes are firmly rooted in hip-hop and electronic music.',op:["doesn't like","don't like","isn't liking","aren't liking"],ca:0,hint:'like = stative verb (estado permanente)',ex:'<strong>Present Simple (negative)</strong>: "like" é um stative verb que expressa uma preferência permanente. Os stative verbs não se usam na forma Continuous, mesmo quando descrevem sentimentos atuais.'},
+  {tx:'They ___ their new comedy series right now. The whole production is on a break until spring.',op:["doesn't film","don't film","isn't filming","aren't filming"],ca:3,hint:'right now',ex:'<strong>Present Continuous (negative)</strong>: "right now" indica o que não está a acontecer neste exato momento. A forma negativa do Present Continuous descreve uma situação em curso que atualmente não está a ter lugar.'},
+  {tx:'This streaming platform ___ adverts during films or series. That is why so many people prefer it to traditional TV.',op:["doesn't show","don't show","isn't showing","aren't showing"],ca:0,hint:'regra permanente da plataforma',ex:'<strong>Present Simple (negative)</strong>: regra permanente e imutável da plataforma. O Present Simple expressa políticas e factos que se aplicam sempre, não apenas neste momento.'},
+  {tx:'___ the gallery ___ a special exhibition this weekend? I saw a poster about it outside.',op:['Does / host','Do / host','Is / hosting','Are / hosting'],ca:2,hint:'this weekend',ex:'<strong>Present Continuous (interrogative)</strong>: "this weekend" e o contexto (vi o cartaz) referem-se a um evento futuro específico e já confirmado. O Present Continuous usa-se para planos e programas futuros já marcados.'},
+  {tx:'How often ___ she ___ to the contemporary art gallery?',op:['does / go','do / go','is / going','are / going'],ca:0,hint:'How often',ex:'<strong>Present Simple (interrogative)</strong>: "How often" pergunta sobre a frequência de uma ação habitual. Usa-se Does/Do + subject + infinitive para perguntas sobre hábitos e rotinas.'},
+  {tx:'Why ___ the director ___ the film premiere this week? Is there a problem with the main venue?',op:['does / postpone','do / postpone','is / postponing','are / postponing'],ca:2,hint:'this week',ex:'<strong>Present Continuous (interrogative)</strong>: "this week" indica uma situação temporária em curso. A interrogativa do Present Continuous (Is/Are + subject + verb-ing?) pergunta sobre ações que estão atualmente a decorrer.'},
+  {tx:'___ this art school ___ evening courses for adults who work during the day?',op:['Does / offer','Do / offer','Is / offering','Are / offering'],ca:0,hint:'serviço permanente da escola',ex:'<strong>Present Simple (interrogative)</strong>: pergunta sobre um serviço ou facilidade permanente. Usa-se Does + subject + infinitive para perguntas sobre factos regulares e políticas institucionais.'},
+  {tx:'Look at those ticket sales! Which online music platforms ___ teenagers ___ the most right now?',op:['does / use','do / use','is / using','are / using'],ca:3,hint:'right now',ex:'<strong>Present Continuous (interrogative)</strong>: "Look at" e "right now" indicam uma tendência em curso neste momento. O Present Continuous interrogativo usa-se para perguntar sobre o que está a acontecer agora ou sobre mudanças atuais, em contraste com hábitos permanentes.'},
+];
+
+const QS_T2 = [
+  {tx:'While he ___ through his favourite gaming channels, he <span class="voc-tip" data-key="stumbleupon">stumbled upon</span> a documentary that completely changed his view on screen time.',op:['scrolled','was scrolling','were scrolling','scrolls'],ca:1,hint:'While',ex:'<strong>Past Continuous</strong>: "while" introduz uma ação de fundo em curso que é interrompida por outra (stumbled upon). A estrutura <em>while + Past Continuous</em> indica a ação mais longa que estava em progresso quando algo súbito aconteceu.'},
+  {tx:'She ___ her first blog about local music events when she was sixteen and it quickly became very popular.',op:['created','was creating','were creating','creates'],ca:0,hint:'when she was sixteen',ex:'<strong>Past Simple</strong>: ação concluída num momento específico do passado ("when she was sixteen"). "When" introduz o momento em que a ação ocorreu. Como ambas as ações foram instantâneas e sequenciais, ambas ficam no Past Simple.'},
+  {tx:'The twins ___ a multiplayer game online when their parents walked in and immediately confiscated all the devices.',op:['played','was playing','were playing','play'],ca:2,hint:'when their parents walked in',ex:'<strong>Past Continuous</strong>: ação em curso (jogar) interrompida por um evento súbito (os pais entraram). A ação dos gémeos estava em progresso; a chegada dos pais é a interrupção no Past Simple.'},
+  {tx:'While thousands of teenagers were watching the concert live on their phones, the platform suddenly ___ and left everyone offline.',op:['crashed','was crashing','were crashing','crashes'],ca:0,hint:'While … suddenly',ex:'<strong>Past Simple</strong>: evento súbito e pontual ("crashed") que interrompe a ação de fundo no Past Continuous ("were watching"). "While" introduz o fundo; a falha da plataforma é a interrupção concluída.'},
+  {tx:'She ___ a new filter on her photos when her friend called to say the post had already gone viral.',op:['applied','was applying','were applying','applies'],ca:1,hint:'when her friend called',ex:'<strong>Past Continuous</strong>: ação em curso no momento em que ocorreu outro evento (o telefonema). A telefonada ("called", Past Simple) interrompe a atividade de fundo ("was applying").'},
+  {tx:'He ___ social media when his parents first gave him a smartphone. He only started using it six months later.',op:["didn't use","wasn't using","weren't using","doesn't use"],ca:0,hint:'when his parents first gave him',ex:'<strong>Past Simple (negative)</strong>: ação por omissão concluída no momento em que recebeu o smartphone ("when his parents gave him"). Ambos os verbos se referem a eventos terminados e sequenciais, por isso ambos ficam no Past Simple.'},
+  {tx:'While the teacher was explaining digital safety online, most students ___ notes. They were scrolling through their feeds instead.',op:["didn't take","wasn't taking","weren't taking","don't take"],ca:2,hint:'While the teacher was explaining',ex:'<strong>Past Continuous (negative)</strong>: estado em curso (não estar a tomar notas) como ação de fundo paralela à explicação da professora. A estrutura <em>while + Past Continuous</em> descreve duas ações de fundo simultâneas, uma das quais está na negativa.'},
+  {tx:'She ___ her phone when the film started, even though the teacher had asked everyone to switch their phones off.',op:["didn't turn off","wasn't turning off","weren't turning off","doesn't turn off"],ca:0,hint:'when the film started',ex:'<strong>Past Simple (negative)</strong>: ação por omissão pontual no momento em que o filme começou ("when the film started"). "When" introduz um evento instantâneo; a resposta negativa a esse evento usa o Past Simple. <span class="voc-tip" data-key="switchoff">💡 switch off / turn off</span>'},
+  {tx:'While the teacher was presenting the lesson on <span class="voc-tip" data-key="fakenews">fake news</span>, the students at the back ___ attention at all.',op:["didn't pay","wasn't paying","weren't paying","don't pay"],ca:2,hint:'While the teacher was presenting',ex:'<strong>Past Continuous (negative)</strong>: estado de desatenção em curso durante a aula ("while the teacher was presenting"). A ação de fundo da professora está no Past Continuous; a desatenção dos alunos, também contínua e simultânea, fica igualmente no Past Continuous negativo.'},
+  {tx:'The school website ___ properly when the students tried to submit their assignments online, which caused a lot of frustration.',op:["didn't work","wasn't working","weren't working","doesn't work"],ca:0,hint:'when the students tried',ex:'<strong>Past Simple (negative)</strong>: ação por omissão pontual e concluída no momento em que os alunos tentaram submeter os trabalhos ("when the students tried"). "When" indica o momento exato; a falha foi instantânea, logo usa o Past Simple.'},
+  {tx:'What ___ you ___ on your phone when the teacher walked over and asked you to put it away?',op:['did / do','was / doing','were / doing','do / do'],ca:2,hint:'when the teacher walked over',ex:'<strong>Past Continuous (interrogative)</strong>: "when the teacher walked over" é o evento de interrupção no Past Simple. A pergunta é sobre a ação de fundo que estava em curso nesse momento, o que exige o Past Continuous.'},
+  {tx:'When ___ she ___ her first viral video? How did she react when she saw all the comments?',op:['did / post','was / posting','were / posting','does / post'],ca:0,hint:'When (momento específico)',ex:'<strong>Past Simple (interrogative)</strong>: pergunta sobre quando ocorreu uma ação concluída e pontual. "When did she post?" pergunta por um momento específico no passado; a ação foi instantânea e completa, não uma ação de fundo.'},
+  {tx:'___ he ___ to music while he was revising for his digital literacy exam, or did he prefer silence?',op:['Did / listen','Was / listening','Were / listening','Does / listen'],ca:1,hint:'while he was revising',ex:'<strong>Past Continuous (interrogative)</strong>: pergunta sobre uma ação em curso durante um período de fundo ("while he was revising"). A estrutura <em>Was + subject + verb-ing + while...?</em> descreve duas possíveis ações simultâneas e contínuas.'},
+  {tx:'While his sister was talking to her friends online, he suddenly ___ and posted a photo on the school group chat by mistake.',op:['clicked','was clicking','were clicking','clicks'],ca:0,hint:'While … suddenly',ex:'<strong>Past Simple</strong>: ação pontual e súbita ("suddenly") que ocorreu durante a ação de fundo descrita por "while + Past Continuous". O clique foi um único evento instantâneo e concluído, não uma ação em curso.'},
+  {tx:'___ she ___ to her friends online when her mother knocked on the door and told her to go to sleep?',op:['Did / talk','Was / talking','Were / talking','Does / talk'],ca:1,hint:'when her mother knocked',ex:'<strong>Past Continuous (interrogative)</strong>: pergunta sobre a ação em curso no momento em que outro evento ocorreu ("when her mother knocked"). A ação de falar estava potencialmente em progresso; a batida da mãe à porta ("knocked", Past Simple) é a interrupção.'},
+];
+
+const QS_T3 = [
+  {tx:'She ___ three marathons so far this year, and the season is not over yet.',op:['ran','has run','have run','runs'],ca:1,hint:'so far this year',ex:'<strong>Present Perfect</strong>: "so far this year" indica um período temporal que ainda não terminou. O Present Perfect usa-se quando o período de tempo está em aberto e as ações nele contidas podem continuar.'},
+  {tx:'He ___ a <span class="voc-tip" data-key="takeout">gym membership</span> in January and went every single day for the first month.',op:['took out','has taken out','have taken out','takes out'],ca:0,hint:'in January',ex:'<strong>Past Simple</strong>: "in January" é uma referência temporal específica e fechada. O Past Simple é obrigatório quando o tempo da ação está claramente indicado ou implicitamente terminado.'},
+  {tx:'Scientists ___ a clear link between a Mediterranean diet and a reduced risk of heart disease over the past decade, changing medical recommendations worldwide.',op:['established','has established','have established','establish'],ca:2,hint:'over the past decade',ex:'<strong>Present Perfect</strong>: "over the past decade" descreve um período que começa no passado e chega ao presente. O Present Perfect usa-se quando o resultado de uma investigação tem relevância direta no momento atual.'},
+  {tx:'The athlete ___ five gold medals at the 2020 Tokyo Olympics, breaking three world records in the process.',op:['won','has won','have won','wins'],ca:0,hint:'at the 2020 Tokyo Olympics',ex:'<strong>Past Simple</strong>: "at the 2020 Tokyo Olympics" é um evento passado específico e concluído. O Past Simple é sempre usado para eventos terminados, mesmo sem uma expressão temporal explícita.'},
+  {tx:'Many people ___ their eating habits significantly since the pandemic began, and health experts say the trend is continuing.',op:['changed','has changed','have changed','change'],ca:2,hint:'since the pandemic began',ex:'<strong>Present Perfect</strong>: "since the pandemic began" liga um ponto de partida no passado ao presente. O Present Perfect com "since" descreve uma mudança que começou no passado e continua a afetar o presente. "changed" (Past Simple) seria errado porque a mudança ainda está em curso.'},
+  {tx:'I ___ fast food at all since I started following a plant-based diet three months ago.',op:["didn't eat","hasn't eaten","haven't eaten","don't eat"],ca:2,hint:'since I started',ex:'<strong>Present Perfect (negative)</strong>: "since I started" liga o início passado ao momento presente. O Present Perfect com "since" descreve algo que não aconteceu durante um período que se estende até agora.'},
+  {tx:'She ___ yoga yesterday because she had a terrible headache and needed to rest in bed.',op:["didn't do","hasn't done","haven't done","doesn't do"],ca:0,hint:'yesterday',ex:'<strong>Past Simple (negative)</strong>: "yesterday" é uma referência temporal específica e terminada. Quando é mencionado um tempo passado específico, é obrigatório usar o Past Simple, nunca o Present Perfect.'},
+  {tx:'The government ___ yet ___ the new public health guidelines, <span class="voc-tip" data-key="despite">despite</span> considerable pressure from medical experts.',op:["didn't / publish","hasn't / published","haven't / published","doesn't / publish"],ca:1,hint:'yet',ex:'<strong>Present Perfect (negative)</strong>: "yet" indica que uma ação esperada ainda não ocorreu até ao momento presente. A forma negativa do Present Perfect com "yet" expressa que algo deveria ter acontecido mas ainda não aconteceu.'},
+  {tx:'The sports centre ___ any group fitness classes last August because the main hall was being renovated.',op:["didn't offer","hasn't offered","haven't offered","doesn't offer"],ca:0,hint:'last August',ex:'<strong>Past Simple (negative)</strong>: "last August" é uma referência temporal específica e fechada no passado. A ausência de aulas aconteceu durante um período definido e terminado; o Past Simple é obrigatório.'},
+  {tx:'The doctor ___ her to reduce her sugar intake at last week\'s appointment. It was a missed opportunity.',op:["didn't advise","hasn't advised","haven't advised","doesn't advise"],ca:0,hint:'at last week\'s appointment',ex:'<strong>Past Simple (negative)</strong>: "at last week\'s appointment" é um momento específico e terminado no passado. O Past Simple é obrigatório quando é indicado um tempo passado definido, mesmo que a consequência ainda se faça sentir hoje.'},
+  {tx:'When ___ the government ___ the new national guidelines on physical activity for young people?',op:['did / publish','has / published','have / published','does / publish'],ca:0,hint:'When (momento específico)',ex:'<strong>Past Simple (interrogative)</strong>: "when" pede o momento específico em que a ação ocorreu. Quando uma pergunta interroga sobre o tempo exato de um evento passado e concluído, usa-se sempre o Past Simple, não o Present Perfect.'},
+  {tx:'When ___ you ___ your last full medical check-up with your doctor?',op:['did / have','has / had','have / had','do / have'],ca:0,hint:'When (momento específico)',ex:'<strong>Past Simple (interrogative)</strong>: "when" pede um momento passado específico. Quando uma pergunta pede o tempo exato de um evento, é obrigatório usar o Past Simple, não o Present Perfect.'},
+  {tx:'How many times ___ she ___ the gym last month according to her fitness tracker?',op:['did / visit','has / visited','have / visited','does / visit'],ca:0,hint:'last month',ex:'<strong>Past Simple (interrogative)</strong>: "last month" é um período de tempo terminado. Mesmo que "how many times" possa sugerir o Present Perfect, uma referência temporal fechada exige sempre o Past Simple.'},
+  {tx:'___ they ___ enough water today? The doctor said hydration is absolutely critical in this heat.',op:['Did / drink','Has / drunk','Have / drunk','Do / drink'],ca:2,hint:'today',ex:'<strong>Present Perfect (interrogative)</strong>: "today" refere-se a um período que ainda não terminou. O Present Perfect usa-se para ações dentro de um período de tempo que ainda está em aberto no momento em que se fala.'},
+  {tx:'Talking about mental health ___ much more common among teenagers since schools started including it in the curriculum.',op:['became','has become','have become','becomes'],ca:1,hint:'since schools started',ex:'<strong>Present Perfect</strong>: "since schools started including it" liga um ponto de partida no passado ao presente. O Present Perfect simples usa-se para descrever uma mudança que começou no passado e tem consequências no presente.'},
+];
+
+const QS_T4 = [
+  {tx:'By the time the nutritionist arrived at the clinic, he ___ already ___ three meals that exceeded his daily limit.',op:['has / eaten','have / eaten','had / eaten','ate'],ca:2,hint:'By the time',ex:'<strong>Past Perfect</strong>: o ato de comer aconteceu antes da chegada do nutricionista (evento passado concluído). O Past Perfect (had + Verb Form 3) descreve uma ação concluída antes de outro evento no passado.'},
+  {tx:'She ___ recently ___ to a new fitness routine and says she has never had more energy in her life.',op:['has / switched','have / switched','had / switched','switched'],ca:0,hint:'recently',ex:'<strong>Present Perfect</strong>: "recently" com um resultado diretamente relevante para o presente. O Present Perfect liga uma ação recente no passado ao seu significado atual.'},
+  {tx:'Research ___ consistently ___ that regular physical activity reduces the risk of cardiovascular disease.',op:['has / shown','have / shown','had / shown','showed'],ca:0,hint:'consistently (resultado atual)',ex:'<strong>Present Perfect</strong>: investigação acumulada com relevância atual e contínua. O Present Perfect usa-se quando descobertas do passado têm uma relação direta com o presente.'},
+  {tx:'By the time she finally consulted a specialist, the injury ___ much worse than when it had first appeared.',op:['has become','have become','had become','became'],ca:2,hint:'By the time',ex:'<strong>Past Perfect</strong>: o agravamento da lesão aconteceu antes de ela consultar o especialista (evento passado). O Past Perfect estabelece o mais antigo dos dois eventos passados.'},
+  {tx:'She discovered that she ___ a gluten intolerance for years without ever suspecting it was the cause.',op:['has had','have had','had had','had'],ca:2,hint:'for years without ever suspecting',ex:'<strong>Past Perfect</strong>: a intolerância ao glúten já existia antes da descoberta. O Past Perfect descreve uma situação que já estava em vigor antes de outro momento no passado.'},
+  {tx:'When the doctor examined her after the race, he found that she ___ properly for three days before the event, which explained her collapse.',op:["hasn't eaten","haven't eaten","hadn't eaten","didn't eat"],ca:2,hint:'When … found that … before the event',ex:'<strong>Past Perfect (negative)</strong>: a ausência de alimentação adequada existia <em>antes</em> do momento do exame médico. "When the doctor examined her" é o ponto de referência no passado; o que havia ou não acontecido antes usa o Past Perfect.'},
+  {tx:'The clinic ___ yet ___ its new mental wellness programme, <span class="voc-tip" data-key="despite">despite</span> strong demand from patients.',op:["hasn't / launched","haven't / launched","hadn't / launched","didn't / launch"],ca:0,hint:'yet',ex:'<strong>Present Perfect (negative)</strong>: "yet" indica que uma ação esperada ainda não ocorreu até ao momento presente. A forma negativa do Present Perfect com "yet" usa-se para ações que deveriam ter acontecido até agora mas ainda não aconteceram.'},
+  {tx:'He ___ the gym once since he injured his knee playing basketball in March.',op:["hasn't visited","haven't visited","hadn't visited","didn't visit"],ca:0,hint:'since he injured his knee',ex:'<strong>Present Perfect (negative)</strong>: "since he injured his knee" liga um evento passado ao presente. O Present Perfect descreve uma situação que continuou (ou não ocorreu) desde um momento passado até agora.'},
+  {tx:'They ___ about mindfulness or meditation before the therapist introduced the concept during their session.',op:["hasn't heard","haven't heard","hadn't heard","didn't hear"],ca:2,hint:'before the therapist introduced',ex:'<strong>Past Perfect (negative)</strong>: o desconhecimento sobre mindfulness existia antes de o terapeuta introduzir o conceito. O Past Perfect expressa o que não tinha acontecido antes de um evento passado específico.'},
+  {tx:'The physiotherapist noticed that the patient ___ any of the exercises from the previous session before arriving for the review.',op:["hasn't practised","haven't practised","hadn't practised","didn't practise"],ca:2,hint:'before arriving for the review',ex:'<strong>Past Perfect (negative)</strong>: a ausência de prática existia <em>antes</em> da consulta de revisão. "Before arriving for the review" é o ponto de referência no passado; o que não tinha sido feito antes usa o Past Perfect.'},
+  {tx:'___ you ___ the new mindfulness app that the health centre is currently recommending?',op:['Has / tried','Have / tried','Had / tried','Did / try'],ca:1,hint:'experiência geral — sem referência temporal',ex:'<strong>Present Perfect (interrogative)</strong>: pergunta sobre uma experiência passada com relevância presente. Sem referência temporal específica, "Have you tried?" usa o Present Perfect para perguntar sobre experiências gerais até ao momento atual. O Present Perfect (interrogativa) usa-se para perguntar sobre experiências sem referência temporal definida.'},
+  {tx:'___ the patient ___ the medication regularly before the side effects first appeared?',op:['Has / taken','Have / taken','Had / taken','Did / take'],ca:2,hint:'before the side effects first appeared',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta sobre uma ação antes de outro evento passado (o aparecimento dos efeitos secundários). A interrogativa do Past Perfect (Had + subject + Verb Form 3?) estabelece o mais antigo dos dois eventos passados.'},
+  {tx:'By the time she received her test results, her doctor ___ already ___ her on a stricter nutritional plan for six weeks.',op:['has / placed','have / placed','had / placed','placed'],ca:2,hint:'By the time',ex:'<strong>Past Perfect</strong>: a colocação no programa nutricional aconteceu antes da receção dos resultados (evento no Past Simple). O Past Perfect estabelece o evento mais antigo; "by the time" é um marcador clássico desta estrutura.'},
+  {tx:'___ they ___ about the new nutritional approach before the dietitian published her landmark findings?',op:['Has / heard','Have / heard','Had / heard','Did / hear'],ca:2,hint:'before the dietitian published',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta se algo aconteceu antes de um evento passado específico (a publicação). "Before the dietitian published" estabelece o ponto de referência no passado para o Past Perfect.'},
+  {tx:'How many people ___ their lifestyle choices since the government launched the national health campaign?',op:['has / reconsidered','have / reconsidered','had / reconsidered','did / reconsider'],ca:1,hint:'since the government launched',ex:'<strong>Present Perfect (interrogative)</strong>: "since the government launched" liga um ponto de partida no passado ao presente. O Present Perfect pergunta sobre mudanças que começaram no passado e ainda são relevantes agora.'},
+];
+
+/* ══════════════════════════════════════════
+   READING GAP DATA
+══════════════════════════════════════════ */
+const RD = {
+  t1:[
+    {id:'t1r1',correct:'has',rule:'<strong>Present Simple</strong>: "every city" com um facto universal e permanente. Usa-se o Present Simple (has, 3.ª pessoa do singular) para realidades sempre verdadeiras.'},
+    {id:'t1r2',correct:'is undergoing',rule:'<strong>Present Continuous</strong>: "at the moment" indica uma transformação temporária em curso. Usa-se is/are + verb-ing para situações em evolução que estão a acontecer agora.'},
+    {id:'t1r3',correct:'walk',rule:'<strong>Present Simple</strong>: "every weekend" descreve uma ação habitual e regular. O Present Simple (walk, sujeito plural, sem -s) expressa rotinas que se repetem.'},
+    {id:'t1r4',correct:'is working on',rule:'<strong>Present Continuous</strong>: "right now" indica uma ação em curso neste exato momento. Usa-se is/are + verb-ing para ações que estão a decorrer no momento da escrita ou da fala.'},
+    {id:'t1r5',correct:"don't paint",rule:"<strong>Present Simple (negative)</strong>: regra ou política permanente que se aplica sempre. Usa-se don't/doesn't + infinitive para ações por omissão habituais e regras em vigor."},
+    {id:'t1r6',correct:'supports',rule:'<strong>Present Simple</strong>: facto permanente e contínuo sobre a política da câmara municipal. O Present Simple (supports, 3.ª pessoa do singular) expressa situações estáveis e imutáveis.'},
+    {id:'t1r7',correct:'is filming',rule:'<strong>Present Continuous</strong>: "this week" indica uma atividade temporária em curso. Usa-se is/are + verb-ing para ações que estão a acontecer durante um período limitado e atual.'},
+    {id:'t1r8',correct:'agrees',rule:'<strong>Present Simple</strong>: posição geral e permanente de parte do público. O Present Simple (agrees, 3.ª pessoa do singular) expressa atitudes e opiniões habituais ou permanentes.'},
+    {id:'t1r9',correct:"don't appreciate",rule:"<strong>Present Simple (negative)</strong>: facto geral sobre a atitude contínua de alguns moradores. Usa-se don't/doesn't + infinitive para posições negativas permanentes ou ações por omissão habituais."},
+    {id:'t1r10',correct:'show',rule:'<strong>Present Simple</strong>: verdade geral e duradoura suportada por múltiplos inquéritos. O Present Simple (show, sujeito plural) usa-se para factos, estatísticas e conclusões permanentes.'},
+  ],
+  t2:[
+    {id:'t2r1',correct:'were scrolling',rule:'<strong>Past Continuous</strong>: "while" introduz uma ação de fundo em curso quando algo mais aconteceu. Usa-se was/were + verb-ing para ações em curso num momento específico do passado.'},
+    {id:'t2r2',correct:'was doing',rule:'<strong>Past Continuous</strong>: ação de fundo em curso no momento específico em que a internet caiu. Usa-se was/were + verb-ing para ações que estavam a decorrer quando outro evento ocorreu.'},
+    {id:'t2r3',correct:'was watching',rule:'<strong>Past Continuous</strong>: segunda ação de fundo a acontecer simultaneamente no mesmo momento passado. Duas atividades em curso ao mesmo tempo usam ambas o Past Continuous.'},
+    {id:'t2r4',correct:'went',rule:'<strong>Past Simple</strong>: evento súbito e concluído que interrompe as ações de fundo em curso. "Went down" é a interrupção; usa o Past Simple por ser instantâneo e completo.'},
+    {id:'t2r5',correct:'was trying',rule:'<strong>Past Continuous</strong>: "while" introduz outra atividade de fundo em curso. Usa-se was/were + verb-ing para ações que estavam em curso durante o período passado descrito.'},
+    {id:'t2r6',correct:'found',rule:'<strong>Past Simple</strong>: ação concluída e sequencial que se segue ao evento anterior. O Past Simple (found, irregular) descreve uma ação terminada com um resultado claro.'},
+    {id:'t2r7',correct:'took',rule:'<strong>Past Simple</strong>: ação concluída que se segue na sequência de eventos. O Past Simple (took, irregular) descreve uma ação terminada que aconteceu depois de encontrar o jogo.'},
+    {id:'t2r8',correct:'were relaxing',rule:'<strong>Past Continuous</strong>: atividade de fundo em curso quando um novo evento (ouvir risos) ocorreu. Usa-se was/were + verb-ing para o fundo em curso quando uma interrupção no Past Simple acontece.'},
+    {id:'t2r9',correct:'were playing',rule:'<strong>Past Continuous</strong>: ação em curso no momento em que foi observada. "Noticed" (Past Simple) é o ponto de observação; a atividade observada usa o Past Continuous.'},
+    {id:'t2r10',correct:'agreed',rule:'<strong>Past Simple</strong>: conclusão terminada alcançada no final da noite. O Past Simple (agreed, regular) descreve uma ação terminada com um resultado definido e declarado.'},
+  ],
+  t3:[
+    {id:'t3r1',correct:'has worked',rule:'<strong>Present Perfect</strong>: "for over fifteen years" descreve um período que começou no passado e continua até ao presente. Usa-se have/has + Verb Form 3 com "for" quando a situação ainda está em curso.'},
+    {id:'t3r2',correct:'published',rule:'<strong>Past Simple</strong>: "last year" é uma referência temporal específica e fechada. O Past Simple (published, regular) é obrigatório sempre que é indicado um tempo passado definido.'},
+    {id:'t3r3',correct:'has appeared',rule:'<strong>Present Perfect</strong>: "since then" liga o ponto de partida no passado (a publicação do livro) ao presente. Usa-se have/has + Verb Form 3 com "since" para ações desde um momento passado até agora.'},
+    {id:'t3r4',correct:'created',rule:'<strong>Past Simple</strong>: "in 2019" é um ano específico e terminado. O Past Simple (created, regular) usa-se sempre com expressões temporais passadas específicas como anos, meses ou datas nomeadas.'},
+    {id:'t3r5',correct:'has already helped',rule:'<strong>Present Perfect</strong>: "already" assinala uma ação concluída com um resultado relevante para o presente. O Present Perfect com "already" enfatiza que a ação foi concluída antes do esperado.'},
+    {id:'t3r6',correct:'has always believed',rule:'<strong>Present Perfect</strong>: "always" descreve aqui uma convicção mantida desde o passado até ao momento presente, com relevância contínua. Usa-se have/has + always + Verb Form 3 para atitudes permanentes e contínuas.'},
+    {id:'t3r7',correct:'has launched',rule:'<strong>Present Perfect</strong>: "recently" indica uma ação passada cujo resultado é diretamente relevante agora. Usa-se have/has + Verb Form 3 para eventos recentes com consequências presentes.'},
+    {id:'t3r8',correct:'studied',rule:'<strong>Past Simple</strong>: "in the 1990s" é uma década específica e fechada no passado. O Past Simple (studied, regular) é obrigatório para ações concluídas num período de tempo definido e terminado.'},
+    {id:'t3r9',correct:'has never regretted',rule:'<strong>Present Perfect</strong>: "never" com uma experiência ao longo da vida até ao presente. Afirmações com "never/ever" sobre a experiência de vida de alguém usam o Present Perfect.'},
+    {id:'t3r10',correct:'named',rule:'<strong>Past Simple</strong>: "last month" é uma referência temporal específica e terminada. O Past Simple (named, regular) é obrigatório sempre que é indicado um tempo passado definido, independentemente da relevância atual da ação.'},
+  ],
+  t4:[
+    {id:'t4r1',correct:'has followed',rule:'<strong>Present Perfect</strong>: "for the past two years" descreve um período que começou no passado e continua até ao presente. Usa-se have/has + Verb Form 3 quando a situação ainda está em curso.'},
+    {id:'t4r2',correct:'had never exercised',rule:'<strong>Past Perfect</strong>: "before he started" estabelece um ponto de referência no passado. O Past Perfect (had + Verb Form 3) descreve o que não tinha acontecido antes de outro evento passado.'},
+    {id:'t4r3',correct:'had gained',rule:'<strong>Past Perfect</strong>: "by the time he met his trainer in 2022" define um prazo no passado. O Past Perfect descreve um estado concluído que existia antes desse momento passado.'},
+    {id:'t4r4',correct:'has changed',rule:'<strong>Present Perfect</strong>: "since then" liga o ponto de partida no passado (o encontro com o treinador) ao presente. O Present Perfect descreve uma mudança que começou no passado e ainda é relevante agora.'},
+    {id:'t4r5',correct:'has lost',rule:'<strong>Present Perfect</strong>: "now" indica que o resultado é diretamente relevante para o presente. O Present Perfect (has lost) enfatiza a consequência atual de uma ação passada.'},
+    {id:'t4r6',correct:'had consumed',rule:'<strong>Past Perfect</strong>: o consumo elevado de calorias existia antes de ele iniciar o programa (evento passado). O Past Perfect estabelece a situação anterior a outro evento passado.'},
+    {id:'t4r7',correct:"hasn't touched",rule:"<strong>Present Perfect (negative)</strong>: \"since adopting a Mediterranean diet\" liga um ponto de partida no passado ao presente. A forma negativa do Present Perfect com \"since\" descreve algo que não ocorreu durante o período desde então até agora."},
+    {id:'t4r8',correct:'had improved',rule:'<strong>Past Perfect</strong>: os resultados dos exames de sangue (Past Simple) mostraram o que tinha acontecido antes deles. A melhoria do colesterol ocorreu antes do momento dos resultados dos exames, pelo que o Past Perfect é obrigatório.'},
+    {id:'t4r9',correct:'has worked',rule:'<strong>Present Perfect</strong>: "for two years" com uma situação ainda em curso (o treinador ainda trabalha com James). O Present Perfect (has worked) usa-se quando o período de tempo se estende do passado ao presente.'},
+    {id:'t4r10',correct:'has already become',rule:'<strong>Present Perfect</strong>: "already" assinala uma ação concluída com um resultado atual. O Present Perfect com "already" enfatiza que algo aconteceu antes do esperado ou antes de um prazo natural.'},
+  ],
+};
+
+/* ══════════════════════════════════════════
+   TTS, TEXT TO SPEECH
+══════════════════════════════════════════ */
+let ptVoice=null, enVoice=null, ttsActive=null;
+
+function loadVoices(){
+  const vs=speechSynthesis.getVoices();
+  ptVoice=vs.find(v=>v.lang==='pt-PT')||vs.find(v=>v.lang.startsWith('pt'))||null;
+  enVoice=vs.find(v=>v.lang==='en-GB')||vs.find(v=>v.lang==='en-AU')||vs.find(v=>v.lang.startsWith('en'))||null;
+}
+if(speechSynthesis.onvoiceschanged!==undefined) speechSynthesis.onvoiceschanged=loadVoices;
+loadVoices();
+
+/* TTS scripts: arrays of {l:'pt'|'en', t:'text'} */
+const TTS_SCRIPTS = {
+  ps:[
+    {l:'pt',t:'O Present Simple usa-se para factos permanentes, hábitos, rotinas e verdades gerais.'},
+    {l:'pt',t:'Não descreve o que está a acontecer neste momento. Descreve o que acontece geralmente ou sempre.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais verbo. Na terceira pessoa do singular, acrescenta-se S.'},
+    {l:'en',t:'She listens to jazz every evening.'},
+    {l:'pt',t:'Forma negativa: sujeito mais don\'t ou doesn\'t mais infinitivo.'},
+    {l:'en',t:'He doesn\'t watch reality shows.'},
+    {l:'pt',t:'Palavras-chave:'},
+    {l:'en',t:'always, usually, often, sometimes, never, every day, on Sundays, generally.'},
+    {l:'pt',t:'Atenção: os stative verbs, ou verbos de estado, como know, like, believe, own e want, nunca se usam no Continuous em inglês.'},
+  ],
+  pc:[
+    {l:'pt',t:'O Present Continuous descreve ações em curso neste momento, situações temporárias, tendências em evolução e planos futuros já confirmados.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais am, is ou are mais o verbo com a terminação I-N-G.'},
+    {l:'en',t:'The artists are painting a mural right now.'},
+    {l:'pt',t:'Forma negativa: sujeito mais isn\'t ou aren\'t mais o verbo com I-N-G.'},
+    {l:'en',t:'They aren\'t filming the new series right now.'},
+    {l:'pt',t:'Palavras-chave:'},
+    {l:'en',t:'right now, at the moment, currently, this week, look, listen, these days, nowadays.'},
+    {l:'pt',t:'Atenção: o Present Continuous também se usa para planos futuros já confirmados.'},
+    {l:'en',t:'She is performing at the festival next Saturday.'},
+  ],
+  pas:[
+    {l:'pt',t:'O Past Simple usa-se para ações concluídas no passado, especialmente quando a referência temporal está explícita ou claramente implícita.'},
+    {l:'pt',t:'Não há ligação com o presente. O evento pertence inteiramente ao passado.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais o Verb Form 2, ou seja, o verbo no passado. Verbos regulares acrescentam E-D. Verbos irregulares têm formas próprias.'},
+    {l:'en',t:'She created her first channel at thirteen.'},
+    {l:'pt',t:'Forma negativa: sujeito mais didn\'t mais infinitivo.'},
+    {l:'en',t:'He didn\'t use social media until sixteen.'},
+    {l:'pt',t:'Palavras-chave:'},
+    {l:'en',t:'yesterday, last week, last year, in 2010, ago, at that moment, in January, on Monday.'},
+    {l:'pt',t:'Atenção: nunca uses o Present Perfect com expressões de tempo passado definido. Usa sempre o Past Simple.'},
+  ],
+  pac:[
+    {l:'pt',t:'O Past Continuous descreve uma ação que estava em curso num momento específico do passado.'},
+    {l:'pt',t:'Usa-se frequentemente como ação de fundo que é interrompida por outra ação no Past Simple.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais was ou were mais o verbo com I-N-G.'},
+    {l:'en',t:'She was scrolling through social media at midnight.'},
+    {l:'pt',t:'Palavras-chave e estruturas típicas: while mais Past Continuous, mais Past Simple para a interrupção.'},
+    {l:'en',t:'While Emma was watching the stream, Tom was doing his homework.'},
+    {l:'pt',t:'Atenção: quando duas ações de fundo ocorrem simultaneamente, ambas ficam no Continuous.'},
+  ],
+  ww:[
+    {l:'pt',t:'When e while são as duas conjunções principais para ligar o Past Simple ao Past Continuous.'},
+    {l:'pt',t:'While introduz uma ação de fundo longa. O verbo da oração com while fica quase sempre no Past Continuous.'},
+    {l:'en',t:'While she was scrolling through her feed, her phone died.'},
+    {l:'pt',t:'When pode introduzir o evento breve no Past Simple, ou o momento de referência em que algo decorria.'},
+    {l:'en',t:'They were playing a game when their parents walked in.'},
+    {l:'pt',t:'Exceções a ter em conta: os stative verbs nunca usam o Continuous, mesmo com while. Quando dois eventos são rápidos e sequenciais, ambos ficam no Past Simple.'},
+    {l:'en',t:'When the alarm went off, she jumped out of bed.'},
+  ],
+  pp:[
+    {l:'pt',t:'O Present Perfect liga o passado ao presente. Descreve experiências de vida, ações recentes com consequências presentes e situações que começaram no passado e continuam até agora.'},
+    {l:'pt',t:'Atenção: este tempo NÃO equivale ao Pretérito Perfeito do português europeu.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais have ou has mais o Verb Form 3, ou seja, o Past Participle.'},
+    {l:'en',t:'She has run three marathons this year.'},
+    {l:'pt',t:'Forma negativa: sujeito mais haven\'t ou hasn\'t mais o Verb Form 3.'},
+    {l:'en',t:'I haven\'t eaten fast food since January.'},
+    {l:'pt',t:'Palavras-chave:'},
+    {l:'en',t:'already, yet, just, ever, never, recently, lately, so far, since, for, today, this week, this month, this year.'},
+    {l:'pt',t:'Atenção: nunca uses o Present Perfect com expressões de tempo fechado como yesterday, last year, in 2010 ou ago. Usa sempre o Past Simple.'},
+  ],
+  pap:[
+    {l:'pt',t:'O Past Perfect descreve uma ação que aconteceu ANTES de outra ação no passado. É o passado do passado.'},
+    {l:'pt',t:'Usa-se para estabelecer uma sequência temporal clara numa narrativa.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais had mais o Verb Form 3, ou seja, o Past Participle.'},
+    {l:'en',t:'By the time he met his trainer, he had gained fifteen kilograms.'},
+    {l:'pt',t:'Forma negativa: sujeito mais hadn\'t mais o Verb Form 3.'},
+    {l:'en',t:'She hadn\'t eaten enough before the race.'},
+    {l:'pt',t:'Palavras-chave:'},
+    {l:'en',t:'by the time, before, after, already, when, as soon as, until, once.'},
+    {l:'pt',t:'O Past Perfect é o evento mais antigo; o Past Simple é o evento mais recente.'},
+  ],
+  ppc:[
+    {l:'pt',t:'O Present Perfect Continuous descreve uma ação que começou no passado e ainda está em curso, com ênfase na duração ou no processo em si.'},
+    {l:'pt',t:'Contrasta com o Present Perfect simples, que enfatiza o resultado ou o número de vezes que algo aconteceu.'},
+    {l:'pt',t:'Forma afirmativa: sujeito mais have ou has mais been mais o verbo com I-N-G.'},
+    {l:'en',t:'She has been studying Portuguese for eight months.'},
+    {l:'pt',t:'Forma negativa: sujeito mais haven\'t ou hasn\'t mais been mais o verbo com I-N-G.'},
+    {l:'en',t:'He hasn\'t been sleeping well since the trip.'},
+    {l:'pt',t:'Palavras-chave para duração:'},
+    {l:'en',t:'for, since, how long, all day, all week, lately, recently.'},
+    {l:'pt',t:'Contraste: She has written three postcards, resultado completo e contável. She has been writing postcards all afternoon, processo em curso com ênfase na duração.'},
+    {l:'pt',t:'Atenção: os stative verbs nunca se usam no Continuous. Usa o Present Perfect simples.'},
+    {l:'en',t:'I have known her for years.'},
+  ],
+};
+
+const RD_EXTRA = {
+  t6:[
+    {id:'t6r1',correct:'launched',rule:'<strong>Past Simple</strong>: "in 2018" é uma referência temporal específica e fechada. O Past Simple descreve o lançamento do programa como evento concluído num momento passado definido.'},
+    {id:'t6r2',correct:'arrived',rule:'<strong>Past Simple</strong>: a chegada da equipa é o segundo evento; o que aconteceu antes (preparação) usa o Past Perfect, mas a própria chegada usa o Past Simple.'},
+    {id:'t6r3',correct:'had already prepared',rule:'<strong>Past Perfect</strong>: "had already prepared" descreve o que a organização local fez <em>antes</em> da chegada da equipa. O Past Perfect estabelece o evento mais antigo; "already" reforça a anterioridade.'},
+    {id:'t6r4',correct:'discovered',rule:'<strong>Past Simple</strong>: a descoberta foi um momento específico no passado, não um processo anterior a outro evento; usa o Past Simple.'},
+    {id:'t6r5',correct:'had expected',rule:'<strong>Past Perfect</strong>: as expectativas existiam <em>antes</em> da descoberta. O Past Perfect descreve o estado mental que precedeu o evento no Past Simple ("discovered").'},
+    {id:'t6r6',correct:'had lost',rule:'<strong>Past Perfect</strong>: a perda das casas aconteceu <em>antes</em> do acordo de cessar-fogo ser assinado. O Past Perfect estabelece a situação anterior ao evento de referência.'},
+    {id:'t6r7',correct:'said',rule:'<strong>Past Simple</strong>: o ato de falar foi pontual e completo; usa o Past Simple.'},
+    {id:'t6r8',correct:'had studied',rule:'<strong>Past Perfect</strong>: o estudo de direito aconteceu <em>antes</em> de ela se juntar ao programa. "Before joining the programme" estabelece a sequência.'},
+    {id:'t6r9',correct:'ended',rule:'<strong>Past Simple</strong>: com "after", quando a sequência temporal é clara, usa-se o Past Simple. O fim do projeto foi um momento específico no passado.'},
+    {id:'t6r10',correct:'published',rule:'<strong>Past Simple</strong>: a publicação do relatório foi um evento específico e terminado no passado.'},
+  ],
+  t7:[
+    {id:'t7r1',correct:'has been living',rule:'<strong>Present Perfect Continuous</strong>: "for eight months now" descreve a duração de um processo em curso. O Present Perfect Continuous enfatiza a continuidade da ação desde o passado até ao presente.'},
+    {id:'t7r2',correct:'has already visited',rule:'<strong>Present Perfect</strong>: "eleven districts" é um resultado contável e completo. Para resultados e quantidades, usa-se o Present Perfect simples.'},
+    {id:'t7r3',correct:'has been studying',rule:'<strong>Present Perfect Continuous</strong>: "every day" com "since arriving" descreve um hábito contínuo em curso. O Present Perfect Continuous descreve uma atividade repetida que continua até ao presente.'},
+    {id:'t7r4',correct:'has made',rule:'<strong>Present Perfect</strong>: "more progress" é um resultado mensurável e completo. Para resultados e conquistas específicas, o Present Perfect simples é preferível.'},
+    {id:'t7r5',correct:'has been applying',rule:'<strong>Present Perfect Continuous</strong>: "for the past three weeks" descreve um processo em curso com ênfase na duração do esforço.'},
+    {id:'t7r6',correct:'has sent',rule:'<strong>Present Perfect</strong>: "four emails" é um número específico de ações completas. Para ações contáveis como resultados individuais, usa-se o Present Perfect simples.'},
+    {id:'t7r7',correct:'has been watching',rule:'<strong>Present Perfect Continuous</strong>: a família tem estado a acompanhar ao longo de um período contínuo. O Present Perfect Continuous descreve uma atividade em curso com ênfase no processo.'},
+    {id:'t7r8',correct:'has changed',rule:'<strong>Present Perfect</strong>: "has changed her career plans" é uma mudança permanente com resultado presente. Para mudanças com resultado claro, o Present Perfect simples é preferível.'},
+    {id:'t7r9',correct:'has been running',rule:'<strong>Present Perfect Continuous</strong>: "for over twenty years" descreve a duração de um programa ainda em funcionamento. O Present Perfect Continuous enfatiza a continuidade.'},
+    {id:'t7r10',correct:'has already volunteered',rule:'<strong>Present Perfect</strong>: "already volunteered" é uma ação específica e completa. O Present Perfect simples com "already" descreve uma ação que se completou antes do momento esperado.'},
+  ],
+};
+
+/* ── Grammar reminders appended to explanations ── */
+const REM_INT  = '<div class="gram-reminder">⚠️ <strong>Nunca te esqueças da inversão do verbo e do sujeito nas frases interrogativas!</strong> A ordem é: auxiliar + sujeito + verbo principal.</div>';
+const REM_ADV  = '<div class="gram-reminder">⚠️ <strong>Atenção à posição do advérbio!</strong> <em>Just</em>, <em>already</em> e <em>yet</em> colocam-se <strong>entre o auxiliar e o Verb Form 3</strong>: <em>have <u>already</u> seen</em> / <em>has <u>just</u> arrived</em> / <em>have not finished <u>yet</u></em>.</div>';
+
+function gramReminders(tx, ex) {
+  let r = '';
+  if (/interrogativ|interrogative/i.test(ex)) r += REM_INT;
+  if (/\bjust\b|\balready\b|\byet\b/i.test(tx)) r += REM_ADV;
+  return r;
+}
+const VF_URL='https://verbforms-tereza-afonso-students-mar2026.pages.dev/';
+const VF_TENSES=/Past Simple|Present Perfect|Past Perfect|Present Perfect Continuous/;
+function vfLink(text){
+  if(!VF_TENSES.test(text)) return '';
+  return `<div class="vf-link">📚 Precisas de ajuda para estudar as <em>verb forms</em>? <a href="${VF_URL}" target="_blank" rel="noopener">Clica aqui.</a></div>`;
+}
+/* ── EN_RE: matches English grammar terms and signal words inside Portuguese text ── */
+const EN_RE = new RegExp(
+  '(?:^|(?<=[^a-zA-ZÀ-ÿ]))(' + [
+    /* tense names */
+    'Present Simple','Present Continuous','Past Simple','Past Continuous',
+    'Present Perfect Continuous','Present Perfect','Past Perfect','Past Participle',
+    /* grammar labels */
+    'Verb Form [23]','stative verbs?','Continuous',
+    /* stative verbs listed as examples */
+    "don't","doesn't","didn't","isn't","aren't","wasn't","weren't",
+    "haven't","hasn't","hadn't",
+    /* multi-word time signals (longest first) */
+    'right now','at the moment','by the time','as soon as',
+    'last week','last month','last year','last night',
+    'this week','this month','this year',
+    'every day','on Sundays',
+    /* single-word time signals */
+    'already','yet','just','ever','never','recently','lately','so far',
+    'today','yesterday','currently','nowadays','these days',
+    'always','usually','often','sometimes','generally','ago',
+    'before','after','until','once','since',
+    /* conjunctions used as EN terms in explanations */
+    'while','when',
+    /* common stative verbs named in explanations */
+    'know','like','believe','own','want','need',
+    'understand','remember','seem','appear',
+  ].join('|') + ')(?=$|[^a-zA-ZÀ-ÿ])',
+  'gi'
+);
+
+/* ── splitLang: splits a Portuguese string into [{l:'pt'|'en', t:'...'}] chunks ── */
+function splitLang(text, baseLang){
+  if(baseLang==='en') return [{l:'en',t:text}];
+  EN_RE.lastIndex=0;
+  const parts=[];
+  let last=0, m;
+  while((m=EN_RE.exec(text))!==null){
+    const start=m.index + (m[0].length - m[1].length); // account for lookbehind char
+    if(start>last){
+      const chunk=text.slice(last,start).trim();
+      if(chunk) parts.push({l:'pt',t:chunk});
+    }
+    parts.push({l:'en',t:m[1]});
+    last=start+m[1].length;
+  }
+  if(last<text.length){
+    const chunk=text.slice(last).trim();
+    if(chunk) parts.push({l:'pt',t:chunk});
+  }
+  return parts.filter(p=>p.t.length>0 && /\w/.test(p.t));
+}
+
+function speakSection(id){
+  const btn=document.getElementById('tts-'+id);
+  if(ttsActive===id){
+    speechSynthesis.cancel();
+    btn.classList.remove('playing');
+    btn.textContent='🔊 Ouvir';
+    ttsActive=null;
+    return;
+  }
+  if(ttsActive){
+    speechSynthesis.cancel();
+    const oldBtn=document.getElementById('tts-'+ttsActive);
+    if(oldBtn){oldBtn.classList.remove('playing');oldBtn.textContent='🔊 Ouvir';}
+  }
+  const script=TTS_SCRIPTS[id];
+  if(!script) return;
+  loadVoices();
+  ttsActive=id;
+  btn.classList.add('playing');
+  btn.textContent='⏹ Parar';
+
+  /* Flatten all segments, splitting PT segments by embedded EN words */
+  const allSegs=[];
+  script.forEach(seg=>splitLang(seg.t,seg.l).forEach(s=>allSegs.push(s)));
+
+  let i=0;
+  function speakNext(){
+    if(i>=allSegs.length||ttsActive!==id){
+      btn.classList.remove('playing');
+      btn.textContent='🔊 Ouvir';
+      if(ttsActive===id) ttsActive=null;
+      return;
+    }
+    const seg=allSegs[i++];
+    const utt=new SpeechSynthesisUtterance(seg.t);
+    if(seg.l==='pt'&&ptVoice){utt.voice=ptVoice;utt.lang='pt-PT';}
+    else if(enVoice){utt.voice=enVoice;utt.lang='en-GB';}
+    else{utt.lang='en-GB';}
+    utt.rate=0.92;
+    utt.onend=speakNext;
+    utt.onerror=speakNext;
+    speechSynthesis.speak(utt);
+  }
+  speakNext();
+}
+
+/* ══════════════════════════════════════════
+   NAVIGATION: COVER ↔ SECTIONS
+══════════════════════════════════════════ */
+function showCover(){
+  document.getElementById('cover').style.display='flex';
+  document.getElementById('sections').style.display='none';
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  speechSynthesis.cancel();
+  if(ttsActive){
+    const b=document.getElementById('tts-'+ttsActive);
+    if(b){b.classList.remove('playing');b.textContent='🔊 Ouvir';}
+    ttsActive=null;
+  }
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function showSection(id){
+  document.getElementById('cover').style.display='none';
+  document.getElementById('sections').style.display='block';
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function goGrammar(anchor){
+  showSection('t5');
+  if(anchor){
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      const el=document.getElementById(anchor);
+      if(!el) return;
+      const hdr=document.querySelector('#tab-t5 .section-hdr');
+      const hdrH=hdr?hdr.offsetHeight:60;
+      const top=el.getBoundingClientRect().top + window.scrollY - hdrH - 12;
+      window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+    }));
+  }
+}
+
+/* ══════════════════════════════════════════
+   VOCABULARY TOOLTIPS
+══════════════════════════════════════════ */
+const VOC = {
+  broadcast:{
+    type:'Verbo — B2',
+    term:'to broadcast (broadcast – broadcast – broadcast)',
+    def:'Transmitir em rádio ou televisão. É um verbo irregular com três formas iguais: base form, Verb Form 2 e Verb Form 3 são todas "broadcast". Em português: "transmitir", "difundir".',
+    ex:'The radio station <strong>broadcasts</strong> news every hour. (Present Simple) · The match <strong>was broadcast</strong> live last night. (Past Simple, passive) · They have never <strong>broadcast</strong> adverts after midnight.'
+  },
+  remit:{
+    type:'Nome — C1',
+    term:'remit',
+    def:'O conjunto de responsabilidades ou objetivos oficiais de uma organização ou pessoa, definidos por lei ou contrato. Em português: "missão", "âmbito de responsabilidade", "mandato".',
+    ex:'It is part of the BBC\'s <strong>public service remit</strong> to provide impartial news coverage. (= é parte da missão de serviço público da BBC)'
+  },
+  stumbleupon:{
+    type:'Phrasal verb',
+    term:'stumble upon / stumble across',
+    def:'Encontrar algo ou alguém por acaso, sem estar à procura. Equivale a "dar com" ou "topar com" em português europeu.',
+    ex:'While he <strong>was scrolling</strong> through his favourite channels, he <strong>stumbled upon</strong> a documentary that changed his view. (= encontrou por acaso)'
+  },
+  setup:{
+    type:'Phrasal verb',
+    term:'set up',
+    def:'Criar, configurar ou estabelecer algo. Usa-se para contas, perfis, empresas, equipamentos e sistemas. Em português: "criar", "configurar" ou "montar".',
+    ex:'Her brother showed her how to <strong>set up</strong> a social media account. (= criar/configurar) · Compare: <em>set up a business, set up a meeting, set up a new device.</em>'
+  },
+  fakenews:{
+    type:'Vocabulário / Media Literacy',
+    term:'fake news',
+    def:'Informação falsa ou enganosa apresentada como notícia verdadeira, geralmente com o objetivo de manipular a opinião pública ou gerar desinformação. Termo amplamente usado no discurso sobre literacia mediática.',
+    ex:'The lesson focused on how to identify <strong>fake news</strong> online and evaluate the credibility of sources.'
+  },
+  despite:{
+    type:'Connector — Concessão',
+    term:'despite · in spite of · although · even though',
+    def:'Estas expressões introduzem um contraste ou concessão. Indicam que algo acontece mesmo que haja um obstáculo ou razão contrária.',
+    ex:'<strong>Despite</strong> considerable pressure, the government did not act. (= despite + noun/gerund)<br><strong>In spite of</strong> the protests, the law was passed. (= in spite of + noun/gerund)<br><strong>Although</strong> / <strong>Even though</strong> there was pressure, nothing changed. (= although/even though + clause)'
+  },
+  takeout:{
+    type:'Phrasal verb',
+    term:'take out (a membership / a loan / insurance)',
+    def:'Contratar, subscrever ou adquirir um serviço ou produto financeiro. Não tem relação com "levar comida para fora" (nesse caso é "takeaway" em inglês britânico). Em português: "inscrever-se em", "contratar", "subscrever".',
+    ex:'He <strong>took out</strong> a gym membership in January. (= inscreveu-se no ginásio) · Compare: <em>take out a loan, take out insurance, take out a subscription.</em>'
+  },
+  switchoff:{
+    type:'Phrasal verb (separable)',
+    term:'switch off / switch on — turn off / turn on',
+    def:'Switch off e turn off significam o mesmo: desligar um aparelho, luz ou dispositivo. São intercambiáveis em inglês britânico. A diferença é de registo: switch off é ligeiramente mais formal; turn off é mais comum na fala. Ambos são separáveis: o objeto pode ficar entre o verbo e a partícula ou depois dela.',
+    ex:'Switch <strong>off</strong> your phone. = Switch your phone <strong>off</strong>. = Turn <strong>off</strong> your phone. = Turn your phone <strong>off</strong>.<br>With a pronoun, always split: Switch <strong>it</strong> off. (never: switch off it)'
+  },
+  turnoff:{
+    type:'Phrasal verb',
+    term:'turn off · turn on · turn up · turn down',
+    def:'<strong>Turn off</strong>: desligar (aparelho, luz, telefone). <strong>Turn on</strong>: ligar. <strong>Turn up</strong>: aumentar o volume/temperatura. <strong>Turn down</strong>: baixar o volume/temperatura, ou recusar.',
+    ex:'She did not <strong>turn off</strong> her phone when the film started. · <strong>Turn on</strong> the projector, please. · Can you <strong>turn down</strong> the music?'
+  },
+};
+
+document.addEventListener('click', e=>{
+  const tip=e.target.closest('.voc-tip');
+  if(!tip) return;
+  const key=tip.dataset.key;
+  const v=VOC[key];
+  if(!v) return;
+  document.getElementById('vocType').textContent=v.type;
+  document.getElementById('vocTerm').textContent=v.term;
+  document.getElementById('vocDef').textContent=v.def;
+  document.getElementById('vocEx').innerHTML=v.ex;
+  document.getElementById('vocOverlay').classList.add('open');
+});
+
+function closeVoc(e){
+  if(e.target===document.getElementById('vocOverlay')) closeVocBtn();
+}
+function closeVocBtn(){
+  document.getElementById('vocOverlay').classList.remove('open');
+}
+function toggleDark(){
+  const on=document.body.classList.toggle('dark');
+  document.querySelectorAll('.tb-btn[onclick="toggleDark()"],.hdr-tb-btn[onclick="toggleDark()"],#darkBtn,#darkBtn2').forEach(b=>{
+    b.textContent=on?'☀️':'🌙';
+    on?b.classList.add('on'):b.classList.remove('on');
+  });
+}
+
+function toggleFont(){
+  const on=document.body.classList.toggle('rounded');
+  document.querySelectorAll('.tb-btn[onclick="toggleFont()"],.hdr-tb-btn[onclick="toggleFont()"],#fontBtn,#fontBtn2').forEach(b=>{
+    b.textContent=on?'Rounded':'Sharp';
+    on?b.classList.add('on'):b.classList.remove('on');
+  });
+}
+
+/* ══════════════════════════════════════════
+   SHUFFLE
+══════════════════════════════════════════ */
+function fy(arr){const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+const QS_T6 = [
+  // AFF (5)
+  {tx:'By the time the UN peacekeepers arrived, the local militia ___ already ___ the village.',op:['abandoned','had / abandoned','have / abandoned','were / abandoning'],ca:1,hint:'By the time',ex:'<strong>Past Perfect</strong>: o abandono da aldeia aconteceu <em>antes</em> da chegada dos soldados. O Past Perfect (had + Verb Form 3) descreve o evento mais antigo dos dois. "By the time" é um marcador clássico desta estrutura.'},
+  {tx:'The community leaders discovered that the authorities ___ about the water contamination for several years before finally issuing a public warning.',op:['knew','had known','have known','were knowing'],ca:1,hint:'before finally issuing',ex:'<strong>Past Perfect</strong>: o conhecimento da contaminação existia <em>antes</em> de a descoberta ser feita pelos líderes comunitários. O Past Perfect (had + Verb Form 3) descreve uma situação que já estava em vigor antes de outro evento passado.'},
+  {tx:'The conflict ___ in the spring of 2004 after both sides signed a ceasefire agreement in Geneva.',op:['ended','had ended','has ended','was ending'],ca:0,hint:'in the spring of 2004',ex:'<strong>Past Simple</strong>: "in the spring of 2004" é uma referência temporal específica e fechada. O Past Simple é obrigatório quando o tempo exato de um evento passado está indicado. "had ended" seria errado aqui porque não há um segundo evento passado mais recente que sirva de referência.'},
+  {tx:'The investigators revealed that the company ___ illegally in the region for years before the government finally revoked its licence.',op:['operated','had operated','has operated','was operating'],ca:1,hint:'revealed that … before',ex:'<strong>Past Perfect</strong>: a operação ilegal existia <em>antes</em> de a licença ser revogada. O Past Perfect estabelece o evento mais antigo dos dois; "before the government finally revoked" é o ponto de referência no Passado Simples.'},
+  {tx:'When the journalist ___ in the refugee camp, she immediately realised the scale of the humanitarian crisis.',op:['arrived','had arrived','has arrived','was arriving'],ca:0,hint:'immediately realised (ações simultâneas)',ex:'<strong>Past Simple</strong>: evento pontual e concluído ("arrived") que é o ponto de referência da frase. "When" aqui introduz o momento de chegada; como a chegada e a percepção foram simultâneas e sequenciais, ambas ficam no Past Simple.'},
+  // NEG (5)
+  {tx:'The children ___ school for months before the aid organisation built a temporary classroom.',op:["didn't attend","hadn't attended","haven't attended","weren't attending"],ca:1,hint:'before the aid organisation built',ex:'<strong>Past Perfect (negative)</strong>: a ausência escolar existia antes de a organização construir a sala. O Past Perfect negativo descreve uma situação que não se verificava antes de outro evento passado.'},
+  {tx:'She ___ about the war crimes tribunal until she started working for the human rights organisation.',op:["didn't hear","hadn't heard","hasn't heard","wasn't hearing"],ca:1,hint:'until she started working',ex:'<strong>Past Perfect (negative)</strong>: o desconhecimento sobre o tribunal existia antes de ela começar a trabalhar na organização. O Past Perfect negativo descreve o que não tinha acontecido antes de um evento passado específico.'},
+  {tx:'The official report confirmed that the two sides ___ a compromise before the deadline expired, which meant the talks had to continue.',op:["didn't reach","hadn't reached","haven't reached","weren't reaching"],ca:1,hint:'before the deadline expired',ex:'<strong>Past Perfect (negative)</strong>: "confirmed that" introduz discurso indireto no passado. A ausência de acordo existia antes do prazo ("before the deadline expired"), pelo que o Past Perfect é obrigatório para indicar que este evento é anterior a outro evento no passado.'},
+  {tx:'When the journalist filed her report, she realised that the international community ___ the true scale of the humanitarian crisis before her investigation was published.',op:["didn't grasp","hadn't grasped","haven't grasped","weren't grasping"],ca:1,hint:'before her investigation was published',ex:'<strong>Past Perfect (negative)</strong>: a falta de compreensão existia <em>antes</em> do momento em que a jornalista apresentou o seu relatório. "When the journalist filed her report" é o ponto de referência no passado; o que não tinha acontecido antes usa o Past Perfect.'},
+  {tx:'The doctors reported that the community ___ any clean water or medical supplies by the time they arrived in the area.',op:["didn't receive","hadn't received","haven't received","weren't receiving"],ca:1,hint:'by the time they arrived',ex:'<strong>Past Perfect (negative)</strong>: "reported that" introduz discurso indireto no passado. A ausência de recursos existia antes da chegada dos médicos ("by the time they arrived"), pelo que o Past Perfect é obrigatório para descrever a situação que antecede esse momento.'},
+  // INT (5)
+  {tx:'___ the local authorities ___ about the water contamination before the epidemic broke out?',op:['Did / know','Had / known','Have / known','Were / knowing'],ca:1,hint:'before the epidemic broke out',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta sobre se algo aconteceu antes de outro evento passado (o surto epidémico). A interrogativa do Past Perfect (Had + sujeito + Verb Form 3?) estabelece o mais antigo dos dois eventos passados.'},
+  {tx:'___ the young doctor ___ any field experience in conflict zones before she joined the emergency medical mission?',op:['Did / gain','Had / gained','Has / gained','Was / gaining'],ca:1,hint:'before she joined',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta sobre se uma experiência existia <em>antes</em> de ela se juntar à missão. A interrogativa do Past Perfect (Had + sujeito + Verb Form 3?) estabelece o evento mais antigo dos dois.'},
+  {tx:'___ the two countries ___ a formal peace treaty before the conflict resumed in 2003?',op:['Did / sign','Had / signed','Have / signed','Were / signing'],ca:1,hint:'before the conflict resumed',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta sobre se uma ação aconteceu antes do reinício do conflito. "Before the conflict resumed" estabelece o ponto de referência no passado; o que aconteceu antes usa o Past Perfect interrogativo.'},
+  {tx:'How many volunteers ___ the training programme by the time the crisis began?',op:['completed','had completed','have completed','were completing'],ca:1,hint:'by the time the crisis began',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta sobre o número de pessoas que concluíram o programa antes do início da crise. "By the time the crisis began" é o ponto de referência; o que aconteceu antes usa o Past Perfect.'},
+  {tx:'___ the human rights report ___ the specific cases of child soldiers before it was presented to the council?',op:['Did / document','Had / documented','Has / documented','Was / documenting'],ca:1,hint:'before it was presented',ex:'<strong>Past Perfect (interrogative)</strong>: pergunta sobre o que estava documentado antes da apresentação ao conselho. "Before it was presented" é o ponto de referência no passado; o Past Perfect interrogativo pergunta sobre o que havia sido feito antes.'},
+];
+
+const QS_T7 = [
+  // AFF (5)
+  {tx:'She ___ Portuguese every day for six months and her progress has been remarkable.',op:['has studied','have studied','has been studying','have been studying'],ca:2,hint:'every day for six months',ex:'<strong>Present Perfect Continuous</strong>: "for six months" descreve a duração de uma ação em curso. O Present Perfect Continuous (have/has been + verb-ing) enfatiza a continuidade da ação desde o passado até ao presente.'},
+  {tx:'He ___ three countries since starting his Erasmus+ year, and there are still two months to go.',op:['has visited','have visited','has been visiting','have been visiting'],ca:0,hint:'since starting (resultado contável)',ex:'<strong>Present Perfect</strong>: o número de países visitados é um resultado contável e completo (três). Quando enfatizamos o resultado ou a quantidade, usamos o Present Perfect simples, não o Continuous.'},
+  {tx:'The university exchange programme ___ for over thirty years and has helped thousands of students.',op:['has run','have run','has been running','have been running'],ca:2,hint:'for over thirty years',ex:'<strong>Present Perfect Continuous</strong>: "for over thirty years" descreve a duração de um processo em curso, com ênfase na continuidade. O Present Perfect Continuous descreve uma atividade que continua ou terminou muito recentemente.'},
+  {tx:'Sophie ___ Erasmus+ applications for three weeks, but she still has not received a decision.',op:['has submitted','have submitted','has been submitting','have been submitting'],ca:2,hint:'for three weeks',ex:'<strong>Present Perfect Continuous</strong>: "for three weeks" indica um processo em curso com ênfase na duração e no esforço continuado. O Present Perfect Continuous descreve uma atividade repetida ou contínua cujos resultados ainda não são definitivos.'},
+  {tx:'The international students ___ several important cultural differences since they arrived, and these discoveries have changed the way they see the world.',op:['has noticed','have noticed','has been noticing','have been noticing'],ca:1,hint:'since they arrived (resultado)',ex:'<strong>Present Perfect</strong>: "several important differences" é um resultado específico e contável. O Present Perfect simples usa-se para resultados concretos e completos. O Present Perfect Continuous deslocaria o foco para o processo em si, o que não é o sentido da frase.'},
+  // NEG (5)
+  {tx:'She ___ home since she left for Portugal, but she calls her family every weekend.',op:["hasn't been back","haven't been back","hasn't been going back","haven't been going back"],ca:0,hint:'since she left for Portugal',ex:'<strong>Present Perfect</strong>: "since she left" liga um ponto passado ao presente. O Present Perfect simples descreve uma situação (não ter regressado) que se mantém desde esse momento. O verbo "go back" com "since" usa o Present Perfect, não o Continuous.'},
+  {tx:'The grant office ___ to any of her emails, which is causing real problems.',op:["hasn't responded","haven't responded","hasn't been responding","haven't been responding"],ca:2,hint:'consequência em curso: causing real problems',ex:'<strong>Present Perfect Continuous (negative)</strong>: ênfase na falta de resposta continuada ao longo de um período. O Present Perfect Continuous negativo descreve uma ação que deveria estar a acontecer repetidamente mas não está.'},
+  {tx:'He ___ for the scholarship extension yet, even though the deadline is next week.',op:["hasn't applied","haven't applied","hasn't been applying","haven't been applying"],ca:0,hint:'yet',ex:'<strong>Present Perfect (negative)</strong>: "yet" indica que uma ação esperada e completa ainda não aconteceu. Com "yet", usa-se sempre o Present Perfect simples, não o Continuous.'},
+  {tx:'She looks exhausted. She ___ on the Erasmus+ grant applications all day without a single break.',op:['has worked','have worked','has been working','have been working'],ca:2,hint:'all day (duração contínua)',ex:'<strong>Present Perfect Continuous</strong>: a evidência visível ("looks exhausted") é o resultado direto de uma atividade intensa e contínua. "All day" sublinha a duração ininterrupta. O Present Perfect Continuous usa-se quando queremos enfatizar o processo em curso e o seu impacto no presente.'},
+  {tx:'I ___ abroad before, so this experience has completely changed my perspective on life.',op:["hasn't lived","haven't lived","hasn't been living","haven't been living"],ca:1,hint:'before (experiência de vida)',ex:'<strong>Present Perfect (negative)</strong>: descreve a ausência de uma experiência de vida até ao momento presente. Para experiências de vida (com "ever/never/before"), usa-se o Present Perfect simples, não o Continuous.'},
+  // INT (5)
+  {tx:'How long ___ she ___ for the scholarship committee to reach a decision?',op:['has / waited','have / waited','has / been waiting','have / been waiting'],ca:2,hint:'How long',ex:'<strong>Present Perfect Continuous (interrogative)</strong>: "How long" com uma ação em curso usa o Present Perfect Continuous. A pergunta enfatiza a duração de um processo ainda em curso.'},
+  {tx:'How many cities ___ she ___ since the start of her exchange programme?',op:['has / visited','have / visited','has / been visiting','have / been visiting'],ca:0,hint:'How many (resultado contável)',ex:'<strong>Present Perfect (interrogative)</strong>: "how many cities" pergunta por um resultado contável e completo. Quando perguntamos por um número ou quantidade de resultados, usamos o Present Perfect simples.'},
+  {tx:'___ you ever ___ abroad as part of a student exchange or volunteer programme?',op:['Has / lived','Have / lived','Has / been living','Have / been living'],ca:1,hint:'ever',ex:'<strong>Present Perfect (interrogative)</strong>: "ever" pergunta sobre uma experiência de vida. Para perguntas com "ever" sobre experiências gerais, usa-se o Present Perfect simples, não o Continuous.'},
+  {tx:'The teachers look exhausted. ___ the school ___ back-to-back intensive classes all week without a single break?',op:['Has / run','Have / run','Has / been running','Have / been running'],ca:2,hint:'all week (duração contínua)',ex:'<strong>Present Perfect Continuous (interrogative)</strong>: a evidência visível (os professores parecem esgotados) é o resultado de um processo contínuo em curso. O Present Perfect Continuous interrogativo questiona sobre a duração ou a continuidade de uma atividade desde o passado até ao presente, com ênfase no esforço em curso.'},
+  {tx:'Why ___ she ___ about extending her Erasmus+ grant for so long without making a decision?',op:['has / thought','have / thought','has / been thinking','have / been thinking'],ca:2,hint:'for so long',ex:'<strong>Present Perfect Continuous (interrogative)</strong>: "for so long" indica uma ação em curso durante um período prolongado. O Present Perfect Continuous descreve uma atividade mental repetida e contínua ao longo do tempo.'},
+];
+
+const TABS={t1:{qs:QS_T1},t2:{qs:QS_T2},t3:{qs:QS_T3},t4:{qs:QS_T4},t6:{qs:QS_T6},t7:{qs:QS_T7}};
+const STATE={};
+['t1','t2','t3','t4','t6','t7'].forEach(id=>{STATE[id]={chosen:[],displayQS:[],checked:false};});
+const LETTERS=['A','B','C','D'];
+
+/* ══════════════════════════════════════════
+   RENDER PART A
+══════════════════════════════════════════ */
+function renderPartA(tid){
+  const s=STATE[tid]; s.checked=false;
+  const shuffled=fy(TABS[tid].qs);
+  s.displayQS=shuffled.map(q=>{const ct=q.op[q.ca];const so=fy(q.op);return{...q,op:so,ca:so.indexOf(ct)};});
+  s.chosen=new Array(s.displayQS.length).fill(-1);
+  const c=document.getElementById(tid+'-qc'); c.innerHTML='';
+  s.displayQS.forEach((q,qi)=>{
+    const el=document.createElement('div');
+    el.className='qblock'; el.id=tid+'qb'+qi;
+    const opts=q.op.map((o,oi)=>`<button class="opt" id="${tid}o${qi}_${oi}" onclick="chooseOpt('${tid}',${qi},${oi})"><span class="opt-l">${LETTERS[oi]}</span><span>${o}</span></button>`).join('');
+    el.innerHTML=`<div class="qblock-top"><div class="q-num-col"><div class="q-num-lbl">Q</div><div class="q-num-val">${String(qi+1).padStart(2,'0')}</div></div><div class="q-body"><div class="q-text">${q.tx.replace(/___/g,'<b class="q-blank">___</b>')}</div></div></div><div class="opts">${opts}</div><button class="hint-btn" id="${tid}hbtn${qi}" onclick="showHint('${tid}',${qi})">💡 Need a hint?</button><div class="hint-box" id="${tid}hint${qi}"></div><div class="expbox" id="${tid}ex${qi}"><div class="exp-inner" id="${tid}exi${qi}"><div class="exp-verdict" id="${tid}ev${qi}"></div><div class="exp-ca" id="${tid}eca${qi}" style="display:none"></div><div id="${tid}et${qi}"></div></div></div>`;
+    c.appendChild(el);
+  });
+  document.getElementById(tid+'-ck').disabled=false;
+  document.getElementById(tid+'-rs').style.display='none';
+  document.getElementById(tid+'-fp').classList.remove('show');
+  document.getElementById(tid+'-sc-lbl').textContent='Answered';
+  document.getElementById(tid+'-sl-lbl').textContent='Remaining';
+  document.getElementById(tid+'-sd').style.display='none';
+  document.getElementById(tid+'-sw-cell').style.display='none';
+  updateA(tid);
+}
+
+function chooseOpt(tid,qi,oi){
+  const s=STATE[tid]; if(s.checked)return;
+  if(s.chosen[qi]!==-1) document.getElementById(tid+'o'+qi+'_'+s.chosen[qi]).classList.remove('selected');
+  s.chosen[qi]=oi;
+  document.getElementById(tid+'o'+qi+'_'+oi).classList.add('selected');
+  updateA(tid);
+}
+
+function updateA(tid){
+  const s=STATE[tid]; const total=s.displayQS.length||15;
+  const answered=s.chosen.filter(v=>v!==-1).length;
+  const pct=Math.round(answered/total*100);
+  document.getElementById(tid+'-pl').textContent=`${answered} of ${total} answered`;
+  document.getElementById(tid+'-pp').textContent=`${pct} %`;
+  document.getElementById(tid+'-pf').style.width=pct+'%';
+  document.getElementById(tid+'-sc').textContent=answered;
+  document.getElementById(tid+'-sl').textContent=total-answered;
+}
+
+function showHint(tid,qi){
+  const q=STATE[tid].displayQS[qi];
+  const box=document.getElementById(tid+'hint'+qi);
+  const btn=document.getElementById(tid+'hbtn'+qi);
+  box.innerHTML='💡 Pista: <strong class="hint-hl">'+(q.hint||'—')+'</strong>';
+  box.classList.add('show');
+  btn.style.display='none';
+}
+
+function checkPartA(tid){
+  const s=STATE[tid]; s.checked=true;
+  // Hide all hint buttons
+  s.displayQS.forEach((_,qi)=>{
+    const btn=document.getElementById(tid+'hbtn'+qi);
+    if(btn) btn.style.display='none';
+  });
+  let numC=0,numW=0;
+  s.displayQS.forEach((q,qi)=>{
+    const oi=s.chosen[qi]; const ok=(oi!==-1&&oi===q.ca);
+    if(ok)numC++;else numW++;
+    for(let i=0;i<q.op.length;i++){
+      const b=document.getElementById(tid+'o'+qi+'_'+i);
+      b.disabled=true; b.classList.remove('selected');
+      if(i===q.ca)b.classList.add('o-correct');
+      else if(i===oi&&!ok)b.classList.add('o-wrong');
+    }
+    document.getElementById(tid+'qb'+qi).classList.add(ok?'ans-correct':'ans-wrong');
+    const eb=document.getElementById(tid+'ex'+qi);
+    const ei=document.getElementById(tid+'exi'+qi);
+    const ev=document.getElementById(tid+'ev'+qi);
+    const eca=document.getElementById(tid+'eca'+qi);
+    const et=document.getElementById(tid+'et'+qi);
+    eb.classList.add('show');
+    ei.classList.add(ok?'e-correct':'e-wrong');
+    ev.className='exp-verdict '+(ok?'v-c':'v-w');
+    ev.textContent=ok?'✓ Correct':'✗ Incorrect';
+    if(!ok){eca.style.display='block';eca.textContent=(oi===-1?'No answer selected. Correct: ':'Your answer: '+q.op[oi]+' · Correct: ')+q.op[q.ca];}
+    et.innerHTML=q.ex+gramReminders(q.tx,q.ex)+(ok?'':vfLink(q.ex));
+  });
+  const total=s.displayQS.length;
+  const pct=Math.round(numC/total*100);
+  document.getElementById(tid+'-sc-lbl').textContent='Correct';
+  document.getElementById(tid+'-sl-lbl').textContent='Wrong';
+  document.getElementById(tid+'-sc').textContent=numC;
+  document.getElementById(tid+'-sl').textContent=numW;
+  document.getElementById(tid+'-sd').style.display='block';
+  document.getElementById(tid+'-sw-cell').style.display='block';
+  document.getElementById(tid+'-sw').textContent=pct+'%';
+  document.getElementById(tid+'-pf').style.width='100%';
+  document.getElementById(tid+'-pl').textContent=`${total} of ${total} answered`;
+  document.getElementById(tid+'-pp').textContent='100 %';
+  document.getElementById(tid+'-ck').disabled=true;
+  document.getElementById(tid+'-rs').style.display='inline-block';
+  showFinalA(tid,numC);
+}
+
+function scrollSectionTop(tid){
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showFinalA(tid,numC){
+  const p=document.getElementById(tid+'-fp'); p.classList.add('show');
+  document.getElementById(tid+'-fn').textContent=numC;
+  const pct=numC/15;
+  let msg,sub;
+  if(pct===1){msg='Perfect, flawless!';sub='Outstanding command of both tenses. Excellent work.';}
+  else if(pct>=0.87){msg='Excellent work!';sub='A very strong result. Just one or two details to review.';}
+  else if(pct>=0.73){msg='Good effort!';sub='You understand the main patterns. Read the explanations for any mistakes.';}
+  else if(pct>=0.53){msg='Keep practising!';sub='You are making progress. Consulta o separador Grammar para rever as regras.';}
+  else{msg="Don't give up!";sub='Estuda o separador Grammar e tenta de novo. Vais melhorar.';}
+  document.getElementById(tid+'-fm').textContent=msg;
+  document.getElementById(tid+'-fs').textContent=sub;
+  p.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function restartA(tid){
+  STATE[tid].checked=false;
+  renderPartA(tid);
+  scrollSectionTop(tid);
+}
+
+function checkPartB(tid){
+  const rdSource=(RD[tid]||RD_EXTRA[tid]);
+  if(!rdSource) return;
+  let score=0; const items=[];
+  rdSource.forEach(info=>{
+    const sel=document.getElementById(info.id);
+    const val=sel.value; const ok=val===info.correct;
+    if(ok)score++;
+    sel.disabled=true; sel.classList.add(ok?'ok':'err');
+    items.push({...info,chosen:val,ok});
+  });
+  document.getElementById(tid+'-rsn').textContent=score;
+  const pct=score/10;
+  let msg;
+  if(pct===1)msg='All 10 correct, brilliant!';
+  else if(pct>=0.8)msg='Excellent, nearly perfect!';
+  else if(pct>=0.6)msg='Good effort, review the mistakes below.';
+  else if(pct>=0.4)msg='Continua a praticar, consulta o separador Grammar.';
+  else msg="Don't give up, try again after reviewing.";
+  document.getElementById(tid+'-rsm').textContent=msg;
+  document.getElementById(tid+'-rsb').classList.add('show');
+  document.getElementById(tid+'-reh').style.display='flex';
+  const list=document.getElementById(tid+'-rel'); list.innerHTML='';
+  items.forEach((item,i)=>{
+    const div=document.createElement('div');
+    div.className='read-exp-item '+(item.ok?'rei-ok':'rei-err');
+    const wrongNote=item.ok?'':`<div class="rei-ans">Your answer: <em>${item.chosen||'(nothing selected)'}</em> &nbsp;·&nbsp; Correct: <strong>${item.correct}</strong></div>`;
+    div.innerHTML=`<div class="rei-num">${i+1}</div><div class="rei-body"><div class="rei-verdict ${item.ok?'rei-ok-v':'rei-err-v'}">${item.ok?'✓ Correct':'✗ Incorrect'}</div>${wrongNote}<div class="rei-rule">${item.rule}${gramReminders('',item.rule)}${item.ok?'':vfLink(item.rule)}</div></div>`;
+    list.appendChild(div);
+  });
+  document.getElementById(tid+'-rb-ck').disabled=true;
+  document.getElementById(tid+'-rb-rs').style.display='inline-block';
+  document.getElementById(tid+'-rsb').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function resetPartB(tid){
+  document.querySelectorAll(`#tab-${tid} .bsel`).forEach(s=>{s.value='';s.disabled=false;s.classList.remove('ok','err');});
+  document.getElementById(tid+'-rsb').classList.remove('show');
+  document.getElementById(tid+'-reh').style.display='none';
+  document.getElementById(tid+'-rel').innerHTML='';
+  document.getElementById(tid+'-rb-ck').disabled=false;
+  document.getElementById(tid+'-rb-rs').style.display='none';
+}
+
+
+['t1','t2','t3','t4','t6','t7'].forEach(tid=>renderPartA(tid));
+// Start on cover
+showCover();
+</script>
+</body>
+</html>
